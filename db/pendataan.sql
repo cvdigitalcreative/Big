@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2019 at 07:27 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: 29 Jan 2019 pada 10.03
+-- Versi Server: 10.1.28-MariaDB
+-- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `pendataan`
 --
-CREATE DATABASE IF NOT EXISTS `pendataan` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `pendataan`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catatan`
+-- Struktur dari tabel `catatan`
 --
 
 CREATE TABLE `catatan` (
@@ -36,7 +36,7 @@ CREATE TABLE `catatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `catatan`
+-- Dumping data untuk tabel `catatan`
 --
 
 INSERT INTO `catatan` (`catatan_id`, `catatan_text`, `catatan_tanggal`, `proyek_id`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `catatan` (`catatan_id`, `catatan_text`, `catatan_tanggal`, `proyek_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_atap`
+-- Struktur dari tabel `foto_atap`
 --
 
 CREATE TABLE `foto_atap` (
@@ -57,7 +57,7 @@ CREATE TABLE `foto_atap` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_atap`
+-- Dumping data untuk tabel `foto_atap`
 --
 
 INSERT INTO `foto_atap` (`fa_id`, `fa_gambar`, `fa_tanggal`, `proyek_id`) VALUES
@@ -67,7 +67,7 @@ INSERT INTO `foto_atap` (`fa_id`, `fa_gambar`, `fa_tanggal`, `proyek_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_bahu_jalan`
+-- Struktur dari tabel `foto_bahu_jalan`
 --
 
 CREATE TABLE `foto_bahu_jalan` (
@@ -78,7 +78,7 @@ CREATE TABLE `foto_bahu_jalan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_bahu_jalan`
+-- Dumping data untuk tabel `foto_bahu_jalan`
 --
 
 INSERT INTO `foto_bahu_jalan` (`fbj_id`, `fbj_gambar`, `fbj_tanggal`, `proyek_id`) VALUES
@@ -88,7 +88,7 @@ INSERT INTO `foto_bahu_jalan` (`fbj_id`, `fbj_gambar`, `fbj_tanggal`, `proyek_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_belakang`
+-- Struktur dari tabel `foto_belakang`
 --
 
 CREATE TABLE `foto_belakang` (
@@ -99,7 +99,7 @@ CREATE TABLE `foto_belakang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_belakang`
+-- Dumping data untuk tabel `foto_belakang`
 --
 
 INSERT INTO `foto_belakang` (`fb_id`, `fb_gambar`, `fb_tanggal`, `proyek_id`) VALUES
@@ -109,7 +109,7 @@ INSERT INTO `foto_belakang` (`fb_id`, `fb_gambar`, `fb_tanggal`, `proyek_id`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_dak`
+-- Struktur dari tabel `foto_dak`
 --
 
 CREATE TABLE `foto_dak` (
@@ -120,7 +120,7 @@ CREATE TABLE `foto_dak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_dak`
+-- Dumping data untuk tabel `foto_dak`
 --
 
 INSERT INTO `foto_dak` (`fd_id`, `fd_gambar`, `fd_tanggal`, `proyek_id`) VALUES
@@ -130,7 +130,7 @@ INSERT INTO `foto_dak` (`fd_id`, `fd_gambar`, `fd_tanggal`, `proyek_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_depan`
+-- Struktur dari tabel `foto_depan`
 --
 
 CREATE TABLE `foto_depan` (
@@ -141,7 +141,7 @@ CREATE TABLE `foto_depan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_depan`
+-- Dumping data untuk tabel `foto_depan`
 --
 
 INSERT INTO `foto_depan` (`ftd_id`, `ftd_gambar`, `ftd_tanggal`, `proyek_id`) VALUES
@@ -152,7 +152,7 @@ INSERT INTO `foto_depan` (`ftd_id`, `ftd_gambar`, `ftd_tanggal`, `proyek_id`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_dinding`
+-- Struktur dari tabel `foto_dinding`
 --
 
 CREATE TABLE `foto_dinding` (
@@ -163,7 +163,7 @@ CREATE TABLE `foto_dinding` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_dinding`
+-- Dumping data untuk tabel `foto_dinding`
 --
 
 INSERT INTO `foto_dinding` (`fdd_id`, `fdd_gambar`, `fdd_tanggal`, `proyek_id`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `foto_dinding` (`fdd_id`, `fdd_gambar`, `fdd_tanggal`, `proyek_id`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_folding_gate`
+-- Struktur dari tabel `foto_folding_gate`
 --
 
 CREATE TABLE `foto_folding_gate` (
@@ -184,7 +184,7 @@ CREATE TABLE `foto_folding_gate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_folding_gate`
+-- Dumping data untuk tabel `foto_folding_gate`
 --
 
 INSERT INTO `foto_folding_gate` (`ffg_id`, `ffg_gambar`, `ffg_tanggal`, `proyek_id`) VALUES
@@ -194,7 +194,7 @@ INSERT INTO `foto_folding_gate` (`ffg_id`, `ffg_gambar`, `ffg_tanggal`, `proyek_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_kanan`
+-- Struktur dari tabel `foto_kanan`
 --
 
 CREATE TABLE `foto_kanan` (
@@ -205,7 +205,7 @@ CREATE TABLE `foto_kanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_kanan`
+-- Dumping data untuk tabel `foto_kanan`
 --
 
 INSERT INTO `foto_kanan` (`fk_id`, `fk_gambar`, `fk_tanggal`, `proyek_id`) VALUES
@@ -215,7 +215,7 @@ INSERT INTO `foto_kanan` (`fk_id`, `fk_gambar`, `fk_tanggal`, `proyek_id`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_kiri`
+-- Struktur dari tabel `foto_kiri`
 --
 
 CREATE TABLE `foto_kiri` (
@@ -226,7 +226,7 @@ CREATE TABLE `foto_kiri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_kiri`
+-- Dumping data untuk tabel `foto_kiri`
 --
 
 INSERT INTO `foto_kiri` (`fkr_id`, `fkr_gambar`, `fkr_tanggal`, `proyek_id`) VALUES
@@ -236,7 +236,7 @@ INSERT INTO `foto_kiri` (`fkr_id`, `fkr_gambar`, `fkr_tanggal`, `proyek_id`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_kondisi_bangunan`
+-- Struktur dari tabel `foto_kondisi_bangunan`
 --
 
 CREATE TABLE `foto_kondisi_bangunan` (
@@ -247,7 +247,7 @@ CREATE TABLE `foto_kondisi_bangunan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_kondisi_bangunan`
+-- Dumping data untuk tabel `foto_kondisi_bangunan`
 --
 
 INSERT INTO `foto_kondisi_bangunan` (`fkb_id`, `fkb_gambar`, `fkb_tanggal`, `proyek_id`) VALUES
@@ -257,7 +257,7 @@ INSERT INTO `foto_kondisi_bangunan` (`fkb_id`, `fkb_gambar`, `fkb_tanggal`, `pro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_kwh_listrik`
+-- Struktur dari tabel `foto_kwh_listrik`
 --
 
 CREATE TABLE `foto_kwh_listrik` (
@@ -268,7 +268,7 @@ CREATE TABLE `foto_kwh_listrik` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_kwh_listrik`
+-- Dumping data untuk tabel `foto_kwh_listrik`
 --
 
 INSERT INTO `foto_kwh_listrik` (`fkl_id`, `fkl_gambar`, `fkl_tanggal`, `proyek_id`) VALUES
@@ -278,7 +278,7 @@ INSERT INTO `foto_kwh_listrik` (`fkl_id`, `fkl_gambar`, `fkl_tanggal`, `proyek_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_lantai`
+-- Struktur dari tabel `foto_lantai`
 --
 
 CREATE TABLE `foto_lantai` (
@@ -289,7 +289,7 @@ CREATE TABLE `foto_lantai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_lantai`
+-- Dumping data untuk tabel `foto_lantai`
 --
 
 INSERT INTO `foto_lantai` (`fl_id`, `fl_gambar`, `fl_tanggal`, `proyek_id`) VALUES
@@ -299,7 +299,7 @@ INSERT INTO `foto_lantai` (`fl_id`, `fl_gambar`, `fl_tanggal`, `proyek_id`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_pam`
+-- Struktur dari tabel `foto_pam`
 --
 
 CREATE TABLE `foto_pam` (
@@ -310,7 +310,7 @@ CREATE TABLE `foto_pam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_pam`
+-- Dumping data untuk tabel `foto_pam`
 --
 
 INSERT INTO `foto_pam` (`fp_id`, `fp_gambar`, `fp_tanggal`, `proyek_id`) VALUES
@@ -320,7 +320,7 @@ INSERT INTO `foto_pam` (`fp_id`, `fp_gambar`, `fp_tanggal`, `proyek_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_parkiran`
+-- Struktur dari tabel `foto_parkiran`
 --
 
 CREATE TABLE `foto_parkiran` (
@@ -331,7 +331,7 @@ CREATE TABLE `foto_parkiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_parkiran`
+-- Dumping data untuk tabel `foto_parkiran`
 --
 
 INSERT INTO `foto_parkiran` (`fp_id`, `fp_gambar`, `fp_tanggal`, `proyek_id`) VALUES
@@ -341,7 +341,7 @@ INSERT INTO `foto_parkiran` (`fp_id`, `fp_gambar`, `fp_tanggal`, `proyek_id`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_pintu_pintu`
+-- Struktur dari tabel `foto_pintu_pintu`
 --
 
 CREATE TABLE `foto_pintu_pintu` (
@@ -352,7 +352,7 @@ CREATE TABLE `foto_pintu_pintu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_pintu_pintu`
+-- Dumping data untuk tabel `foto_pintu_pintu`
 --
 
 INSERT INTO `foto_pintu_pintu` (`fpp_id`, `fpp_gambar`, `fpp_tanggal`, `proyek_id`) VALUES
@@ -362,7 +362,7 @@ INSERT INTO `foto_pintu_pintu` (`fpp_id`, `fpp_gambar`, `fpp_tanggal`, `proyek_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_proyek_surveyor`
+-- Struktur dari tabel `foto_proyek_surveyor`
 --
 
 CREATE TABLE `foto_proyek_surveyor` (
@@ -391,7 +391,7 @@ CREATE TABLE `foto_proyek_surveyor` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_tanah_belakang`
+-- Struktur dari tabel `foto_tanah_belakang`
 --
 
 CREATE TABLE `foto_tanah_belakang` (
@@ -402,7 +402,7 @@ CREATE TABLE `foto_tanah_belakang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_tanah_belakang`
+-- Dumping data untuk tabel `foto_tanah_belakang`
 --
 
 INSERT INTO `foto_tanah_belakang` (`ftb_id`, `ftb_gambar`, `ftb_tanggal`, `proyek_id`) VALUES
@@ -412,7 +412,7 @@ INSERT INTO `foto_tanah_belakang` (`ftb_id`, `ftb_gambar`, `ftb_tanggal`, `proye
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_tetangga_kanan`
+-- Struktur dari tabel `foto_tetangga_kanan`
 --
 
 CREATE TABLE `foto_tetangga_kanan` (
@@ -423,7 +423,7 @@ CREATE TABLE `foto_tetangga_kanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_tetangga_kanan`
+-- Dumping data untuk tabel `foto_tetangga_kanan`
 --
 
 INSERT INTO `foto_tetangga_kanan` (`ftk_id`, `ftk_gambar`, `ftk_tanggal`, `proyek_id`) VALUES
@@ -433,7 +433,7 @@ INSERT INTO `foto_tetangga_kanan` (`ftk_id`, `ftk_gambar`, `ftk_tanggal`, `proye
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_tetangga_kiri`
+-- Struktur dari tabel `foto_tetangga_kiri`
 --
 
 CREATE TABLE `foto_tetangga_kiri` (
@@ -444,7 +444,7 @@ CREATE TABLE `foto_tetangga_kiri` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_tetangga_kiri`
+-- Dumping data untuk tabel `foto_tetangga_kiri`
 --
 
 INSERT INTO `foto_tetangga_kiri` (`ftkr_id`, `ftkr_gambar`, `ftkr_tanggal`, `proyek_id`) VALUES
@@ -454,7 +454,7 @@ INSERT INTO `foto_tetangga_kiri` (`ftkr_id`, `ftkr_gambar`, `ftkr_tanggal`, `pro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `foto_toilet`
+-- Struktur dari tabel `foto_toilet`
 --
 
 CREATE TABLE `foto_toilet` (
@@ -465,7 +465,7 @@ CREATE TABLE `foto_toilet` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `foto_toilet`
+-- Dumping data untuk tabel `foto_toilet`
 --
 
 INSERT INTO `foto_toilet` (`ft_id`, `ft_gambar`, `ft_tanggal`, `proyek_id`) VALUES
@@ -475,7 +475,33 @@ INSERT INTO `foto_toilet` (`ft_id`, `ft_gambar`, `ft_tanggal`, `proyek_id`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengawas`
+-- Struktur dari tabel `laporan_keuangan`
+--
+
+CREATE TABLE `laporan_keuangan` (
+  `lk_id` int(11) NOT NULL,
+  `lk_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `lk_pengirim` varchar(100) DEFAULT NULL,
+  `lk_keterangan` text,
+  `lk_uang_masuk` varchar(30) DEFAULT NULL,
+  `lk_uang_keluar` varchar(30) DEFAULT NULL,
+  `lk_sisa_uang` varchar(30) DEFAULT NULL,
+  `lk_nota` varchar(50) DEFAULT NULL,
+  `proyek_id` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `laporan_keuangan`
+--
+
+INSERT INTO `laporan_keuangan` (`lk_id`, `lk_tanggal`, `lk_pengirim`, `lk_keterangan`, `lk_uang_masuk`, `lk_uang_keluar`, `lk_sisa_uang`, `lk_nota`, `proyek_id`) VALUES
+(2, '2019-01-28 19:15:22', 'Pengawas', 'beli rokok', '15000', '15000', '0', '081369640601.txt', '4'),
+(3, '2019-01-28 19:15:58', 'Pengawas', 'rokok 2', '15000', '15000', '0', NULL, '4');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengawas`
 --
 
 CREATE TABLE `pengawas` (
@@ -489,7 +515,7 @@ CREATE TABLE `pengawas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pengawas`
+-- Dumping data untuk tabel `pengawas`
 --
 
 INSERT INTO `pengawas` (`pengawas_id`, `pengawas_nama`, `pengawas_alamat`, `pengawas_hp`, `pengawas_username`, `pengawas_password`, `pengawas_foto`) VALUES
@@ -498,7 +524,7 @@ INSERT INTO `pengawas` (`pengawas_id`, `pengawas_nama`, `pengawas_alamat`, `peng
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permintaan_barang`
+-- Struktur dari tabel `permintaan_barang`
 --
 
 CREATE TABLE `permintaan_barang` (
@@ -514,7 +540,7 @@ CREATE TABLE `permintaan_barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `permintaan_barang`
+-- Dumping data untuk tabel `permintaan_barang`
 --
 
 INSERT INTO `permintaan_barang` (`pb_id`, `pb_proyek`, `pb_tanggal`, `pb_nama_barang`, `pb_spesifikasi`, `pb_jumlah`, `pb_satuan`, `pb_rencana_pemakaian`, `proyek_id`) VALUES
@@ -524,7 +550,7 @@ INSERT INTO `permintaan_barang` (`pb_id`, `pb_proyek`, `pb_tanggal`, `pb_nama_ba
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek`
+-- Struktur dari tabel `proyek`
 --
 
 CREATE TABLE `proyek` (
@@ -545,7 +571,7 @@ CREATE TABLE `proyek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `proyek`
+-- Dumping data untuk tabel `proyek`
 --
 
 INSERT INTO `proyek` (`proyek_id`, `proyek_nama`, `proyek_petugas`, `proyek_tanggal`, `proyek_latitude`, `proyek_longitude`, `proyek_alamat`, `proyek_status`, `proyek_tgl_penawaran`, `proyek_tgl_awal_spk`, `proyek_tgl_akhir_spk`, `surveyor_id`, `qc_id`, `pengawas_id`) VALUES
@@ -559,7 +585,7 @@ INSERT INTO `proyek` (`proyek_id`, `proyek_nama`, `proyek_petugas`, `proyek_tang
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek_file`
+-- Struktur dari tabel `proyek_file`
 --
 
 CREATE TABLE `proyek_file` (
@@ -570,7 +596,7 @@ CREATE TABLE `proyek_file` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `proyek_file`
+-- Dumping data untuk tabel `proyek_file`
 --
 
 INSERT INTO `proyek_file` (`pf_id`, `pf_bq`, `pf_tanggal`, `proyek_id`) VALUES
@@ -580,7 +606,7 @@ INSERT INTO `proyek_file` (`pf_id`, `pf_bq`, `pf_tanggal`, `proyek_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek_file_bahan`
+-- Struktur dari tabel `proyek_file_bahan`
 --
 
 CREATE TABLE `proyek_file_bahan` (
@@ -591,7 +617,7 @@ CREATE TABLE `proyek_file_bahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `proyek_file_bahan`
+-- Dumping data untuk tabel `proyek_file_bahan`
 --
 
 INSERT INTO `proyek_file_bahan` (`pfb_id`, `pfb_nama`, `pfb_tanggal`, `proyek_id`) VALUES
@@ -600,7 +626,7 @@ INSERT INTO `proyek_file_bahan` (`pfb_id`, `pfb_nama`, `pfb_tanggal`, `proyek_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek_file_jadwal`
+-- Struktur dari tabel `proyek_file_jadwal`
 --
 
 CREATE TABLE `proyek_file_jadwal` (
@@ -611,7 +637,7 @@ CREATE TABLE `proyek_file_jadwal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `proyek_file_jadwal`
+-- Dumping data untuk tabel `proyek_file_jadwal`
 --
 
 INSERT INTO `proyek_file_jadwal` (`pfj_id`, `pfj_jadwal`, `pfj_tanggal`, `proyek_id`) VALUES
@@ -620,7 +646,7 @@ INSERT INTO `proyek_file_jadwal` (`pfj_id`, `pfj_jadwal`, `pfj_tanggal`, `proyek
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proyek_file_upah`
+-- Struktur dari tabel `proyek_file_upah`
 --
 
 CREATE TABLE `proyek_file_upah` (
@@ -631,7 +657,7 @@ CREATE TABLE `proyek_file_upah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `proyek_file_upah`
+-- Dumping data untuk tabel `proyek_file_upah`
 --
 
 INSERT INTO `proyek_file_upah` (`pfu_id`, `pfu_nama`, `pfu_tanggal`, `proyek_id`) VALUES
@@ -640,7 +666,7 @@ INSERT INTO `proyek_file_upah` (`pfu_id`, `pfu_nama`, `pfu_tanggal`, `proyek_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `qc`
+-- Struktur dari tabel `qc`
 --
 
 CREATE TABLE `qc` (
@@ -654,7 +680,7 @@ CREATE TABLE `qc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `qc`
+-- Dumping data untuk tabel `qc`
 --
 
 INSERT INTO `qc` (`qc_id`, `qc_nama`, `qc_alamat`, `qc_hp`, `qc_username`, `qc_password`, `qc_foto`) VALUES
@@ -663,7 +689,7 @@ INSERT INTO `qc` (`qc_id`, `qc_nama`, `qc_alamat`, `qc_hp`, `qc_username`, `qc_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `surveyor`
+-- Struktur dari tabel `surveyor`
 --
 
 CREATE TABLE `surveyor` (
@@ -677,7 +703,7 @@ CREATE TABLE `surveyor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `surveyor`
+-- Dumping data untuk tabel `surveyor`
 --
 
 INSERT INTO `surveyor` (`surveyor_id`, `surveyor_nama`, `surveyor_alamat`, `surveyor_hp`, `surveyor_username`, `surveyor_password`, `surveyor_foto`) VALUES
@@ -686,7 +712,7 @@ INSERT INTO `surveyor` (`surveyor_id`, `surveyor_nama`, `surveyor_alamat`, `surv
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_inbox`
+-- Struktur dari tabel `tbl_inbox`
 --
 
 CREATE TABLE `tbl_inbox` (
@@ -700,7 +726,7 @@ CREATE TABLE `tbl_inbox` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_inbox`
+-- Dumping data untuk tabel `tbl_inbox`
 --
 
 INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`, `inbox_pesan`, `inbox_tanggal`, `inbox_status`) VALUES
@@ -711,7 +737,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_nama`, `inbox_email`, `inbox_kontak`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_pengguna`
+-- Struktur dari tabel `tbl_pengguna`
 --
 
 CREATE TABLE `tbl_pengguna` (
@@ -727,7 +753,7 @@ CREATE TABLE `tbl_pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_pengguna`
+-- Dumping data untuk tabel `tbl_pengguna`
 --
 
 INSERT INTO `tbl_pengguna` (`pengguna_id`, `pengguna_nama`, `pengguna_jenkel`, `pengguna_username`, `pengguna_password`, `pengguna_email`, `pengguna_nohp`, `pengguna_register`, `pengguna_photo`) VALUES
@@ -865,6 +891,12 @@ ALTER TABLE `foto_toilet`
   ADD PRIMARY KEY (`ft_id`);
 
 --
+-- Indexes for table `laporan_keuangan`
+--
+ALTER TABLE `laporan_keuangan`
+  ADD PRIMARY KEY (`lk_id`);
+
+--
 -- Indexes for table `pengawas`
 --
 ALTER TABLE `pengawas`
@@ -939,161 +971,200 @@ ALTER TABLE `tbl_pengguna`
 --
 ALTER TABLE `catatan`
   MODIFY `catatan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `foto_atap`
 --
 ALTER TABLE `foto_atap`
   MODIFY `fa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_bahu_jalan`
 --
 ALTER TABLE `foto_bahu_jalan`
   MODIFY `fbj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_belakang`
 --
 ALTER TABLE `foto_belakang`
   MODIFY `fb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_dak`
 --
 ALTER TABLE `foto_dak`
   MODIFY `fd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `foto_depan`
 --
 ALTER TABLE `foto_depan`
   MODIFY `ftd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `foto_dinding`
 --
 ALTER TABLE `foto_dinding`
   MODIFY `fdd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_folding_gate`
 --
 ALTER TABLE `foto_folding_gate`
   MODIFY `ffg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_kanan`
 --
 ALTER TABLE `foto_kanan`
   MODIFY `fk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_kiri`
 --
 ALTER TABLE `foto_kiri`
   MODIFY `fkr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `foto_kondisi_bangunan`
 --
 ALTER TABLE `foto_kondisi_bangunan`
   MODIFY `fkb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `foto_kwh_listrik`
 --
 ALTER TABLE `foto_kwh_listrik`
   MODIFY `fkl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_lantai`
 --
 ALTER TABLE `foto_lantai`
   MODIFY `fl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_pam`
 --
 ALTER TABLE `foto_pam`
   MODIFY `fp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_parkiran`
 --
 ALTER TABLE `foto_parkiran`
   MODIFY `fp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_pintu_pintu`
 --
 ALTER TABLE `foto_pintu_pintu`
   MODIFY `fpp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_proyek_surveyor`
 --
 ALTER TABLE `foto_proyek_surveyor`
   MODIFY `fps_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `foto_tanah_belakang`
 --
 ALTER TABLE `foto_tanah_belakang`
   MODIFY `ftb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `foto_tetangga_kanan`
 --
 ALTER TABLE `foto_tetangga_kanan`
   MODIFY `ftk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `foto_tetangga_kiri`
 --
 ALTER TABLE `foto_tetangga_kiri`
   MODIFY `ftkr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `foto_toilet`
 --
 ALTER TABLE `foto_toilet`
   MODIFY `ft_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `laporan_keuangan`
+--
+ALTER TABLE `laporan_keuangan`
+  MODIFY `lk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `pengawas`
 --
 ALTER TABLE `pengawas`
   MODIFY `pengawas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `permintaan_barang`
 --
 ALTER TABLE `permintaan_barang`
   MODIFY `pb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
   MODIFY `proyek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `proyek_file`
 --
 ALTER TABLE `proyek_file`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_bahan`
 --
 ALTER TABLE `proyek_file_bahan`
   MODIFY `pfb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_jadwal`
 --
 ALTER TABLE `proyek_file_jadwal`
   MODIFY `pfj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_upah`
 --
 ALTER TABLE `proyek_file_upah`
   MODIFY `pfu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `qc`
 --
 ALTER TABLE `qc`
   MODIFY `qc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `surveyor`
 --
 ALTER TABLE `surveyor`
   MODIFY `surveyor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
   MODIFY `pengguna_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
