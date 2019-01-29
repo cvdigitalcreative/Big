@@ -76,7 +76,7 @@ wrapper -->
       <div class="card card-statistics mt-30"> 
         <div class="card-body">
             <h5 class="card-title">Project Location</h5>
-            <iframe width="300" height="170" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row->proyek_latitude;?>,<?php echo $row->proyek_longitude;?>&hl=es;z=14&amp;output=embed" style="width: 100%;"></iframe>
+            <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row->proyek_latitude;?>,<?php echo $row->proyek_longitude;?>&hl=es;z=14&amp;output=embed" style="width: 100%;"></iframe>
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@ wrapper -->
             <h5 class="card-title">Lihat File</h5>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatBQ/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat BQ </button></a>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatJadwal/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Jadwal</button></a>
-             <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatPermintaanBarang/<?php echo $row->proyek_id;?>"><button class="btn btn-success">Lihat Permintaan Barang</button></a>
+             <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatPermintaanBarang/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Permintaan Barang</button></a>
           </div>
         </div>
 

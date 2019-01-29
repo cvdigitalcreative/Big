@@ -26,16 +26,16 @@
 <!--=================================
  preloader -->
  
-<div id="pre-loader">
+<!-- <div id="pre-loader">
     <img src="<?php echo base_url()?>assets/admin/images/pre-loader/loader-01.svg" alt="">
-</div>
+</div> -->
 
 <!--=================================
  preloader -->
 
  <!--=================================
  login-->
-<section class="height-100vh d-flex align-items-center page-section-ptb login" style="background-image: url(<?php echo base_url()?>assets/admin/images/pengacara.jpg); background-repeat: no-repeat; background-size: 1400px 900px" >
+<section class="height-100vh d-flex align-items-center page-section-ptb login" style="background-image: url(<?php echo base_url()?>assets/admin/images/pengacara.jpg); background-repeat: no-repeat; background-size: 100% 100%" >
   <div class="container">
     <div class="row justify-content-center no-gutters vertical-align">
       <div class="col-lg-4 col-md-6 login-fancy-bg bg">

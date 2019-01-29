@@ -58,7 +58,7 @@ wrapper -->
       <div class="card card-statistics mt-30"> 
         <div class="card-body">
         <h5 class="card-title">Project Location</h5>
-        <iframe width="300" height="170" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row->proyek_latitude;?>,<?php echo $row->proyek_longitude;?>&hl=es;z=14&amp;output=embed" style="width: 100%;">
+        <iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<?php echo $row->proyek_latitude;?>,<?php echo $row->proyek_longitude;?>&hl=es;z=14&amp;output=embed" style="width: 100%;">
  </iframe>
           </div>
         </div>
@@ -94,9 +94,10 @@ wrapper -->
 
       <div class="card card-statistics mb-30"> 
           <div class="card-body">
-             <a href="#" onclick="showTindakanPerbaikan()"><button class="btn btn-success">Tindakan Perbaikan</button></a>
-             <a href="<?php echo base_url()?>Pengawas/Laporan"><button class="btn btn-success">Laporan Harian</button></a>
-             <a href="#" data-toggle="modal" data-target="#tambah-data"><button class="btn btn-success mt-10" >Permintaan Barang</button></a>
+             <a href="#" onclick="showTindakanPerbaikan()"><button class="btn btn-success mb-10">Tindakan Perbaikan</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Laporan"><button class="btn btn-success mb-10">Laporan Harian</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Keuangan/laporan_keuangan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Keuangan</button></a>
+             <a href="#" data-toggle="modal" data-target="#tambah-data"><button class="btn btn-success mb-10" >Permintaan Barang</button></a>
           </div>
       </div>
 

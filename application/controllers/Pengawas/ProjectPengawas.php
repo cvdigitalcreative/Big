@@ -66,7 +66,6 @@ class ProjectPengawas extends CI_Controller
 			$x['userQC'] 			= $this->m_proyek->getQCProyek($kode);
 			$x['userPengawas'] 		= $this->m_proyek->getPengawasProyek($kode);
 			$x['data'] 				= $this->m_proyek->forDetailproyek($kode);
-			$x['data'] = $this->m_proyek->forDetailproyek($kode);
 			$this->load->view('v_header',$y);
 			$this->load->view('pengawas/v_sidebar');
 			$this->load->view('pengawas/v_project_pengawas_detail',$x);
