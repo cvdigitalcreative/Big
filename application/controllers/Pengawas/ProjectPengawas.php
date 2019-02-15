@@ -18,6 +18,7 @@ class ProjectPengawas extends CI_Controller
 		$this->load->model('m_surveyor');
 		$this->load->model('m_qc');
 		$this->load->model('m_pengawas');
+		$this->load->model('m_pekerjaan');
 		$this->load->model('m_permintaan_barang');
 		$this->load->library('upload');
 	}
@@ -27,14 +28,13 @@ class ProjectPengawas extends CI_Controller
 		if($this->session->userdata("akses") == 3){	
 			$y['title'] = 'Daftar Proyek';
 			$id=$this->session->userdata('idadmin');
-			$x['proyek_fase'] = $this->m_proyek->getProyekPengawas($id,1);
 			$x['proyek_proses'] = $this->m_proyek->getProyekPengawas($id,2);
 			$x['proyek_selesai'] = $this->m_proyek->getProyekPengawas($id,3);
-			$this->load->view('v_header',$y);
+			$this->load->view('v_header_pengawas',$y);
 			$this->load->view('pengawas/v_sidebar');
 			$this->load->view('pengawas/v_project_pengawas',$x);
 		}else{
-			redirect("");
+			redirect("LoginPengawas");
 		}
 	}
 
@@ -66,11 +66,11 @@ class ProjectPengawas extends CI_Controller
 			$x['userQC'] 			= $this->m_proyek->getQCProyek($kode);
 			$x['userPengawas'] 		= $this->m_proyek->getPengawasProyek($kode);
 			$x['data'] 				= $this->m_proyek->forDetailproyek($kode);
-			$this->load->view('v_header',$y);
+			$this->load->view('v_header_pengawas',$y);
 			$this->load->view('pengawas/v_sidebar');
 			$this->load->view('pengawas/v_project_pengawas_detail',$x);
 		}else{
-			redirect("");
+			redirect("LoginPengawas");
 		}	
 	}
 
@@ -88,6 +88,7 @@ class ProjectPengawas extends CI_Controller
 		redirect("Pengawas/ProjectPengawas/detailforPengawas/$proyek_id");
 
 	}
+
 	//Surveyor End Function Project
 }
 ?>

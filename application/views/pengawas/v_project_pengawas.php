@@ -59,10 +59,24 @@
             <div class="mt-20">
              <div class="clearfix">
                  <a class="text-dark mb-10 float-left" href="#">In Progress</a>
-                 <p class="mb-10 text-info float-right">80</p>
+                 <?php 
+                  $this->load->model('m_pekerjaan');
+                  $data1 = $this->m_pekerjaan->getdataPekerjaan($proyek_id);
+                   if($data1->num_rows() == 0){
+                    $persen1 = 0;
+                  }elseif($data1->num_rows() > 0){
+                    $data2 = $this->m_pekerjaan->SumPersen($proyek_id);
+                    $q=$data2->row_array();
+                    $sum_volume=$q['sum_volume'];
+                    $sum_progress=$q['sum_progress'];
+                    $persen = ($sum_progress/$sum_volume)*100;
+                    $persen1 = round($persen);
+                  }
+                 ?>
+                 <p class="mb-10 text-info float-right"><?php echo $persen1;?>%</p>
               </div>
               <div class="progress progress-small">
-                <div class="skill2-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="skill2-bar bg-info" role="progressbar" style="width: <?php echo $persen1;?>%" aria-valuenow="<?php echo $persen1;?>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="mt-10">
@@ -100,20 +114,33 @@
       <div class="col-sm-6 col-lg-6 col-xl-4 mb-30">     
         <div class="card card-statistics h-100"> 
           <div class="card-body">   
-            <a href="<?php echo base_url()?>Pengawas/ProjectPengawas/detailforPengawas" class="text-dark float-right" data-toggle="tooltip" data-placement="left" title="" data-original-title="View project" target="_blank"><i class="fa fa-eye"></i></a>
+            <a href="<?php echo base_url()?>Pengawas/ProjectPengawas/detailforPengawas/<?php echo $proyek_id;?>" class="text-dark float-right" data-toggle="tooltip" data-placement="left" title="" data-original-title="View project" target="_blank"><i class="fa fa-eye"></i></a>
             <span><?php echo $proyek_petugas;?></span>
             <h5 class="mt-15 mb-15"><b><?php echo $proyek_nama;?></b></h5>
             <div class="mt-20">
              <div class="clearfix">
                  <a class="text-dark mb-10 float-left" href="#">In Progress</a>
-                 <p class="mb-10 text-info float-right">80</p>
+                 <?php 
+                  $data1 = $this->m_pekerjaan->getdataPekerjaan($proyek_id);
+                   if($data1->num_rows() == 0){
+                    $persen1 = 0;
+                  }elseif($data1->num_rows() > 0){
+                    $data2 = $this->m_pekerjaan->SumPersen($proyek_id);
+                    $q=$data2->row_array();
+                    $sum_volume=$q['sum_volume'];
+                    $sum_progress=$q['sum_progress'];
+                    $persen = ($sum_progress/$sum_volume)*100;
+                    $persen1 = round($persen);
+                  }
+                 ?>
+                 <p class="mb-10 text-info float-right"><?php echo $persen1;?>%</p>
               </div>
               <div class="progress progress-small">
-                <div class="skill2-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="skill2-bar bg-info" role="progressbar" style="width: <?php echo $persen1;?>%" aria-valuenow="<?php echo $persen1;?>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="mt-10">
-              <?php if((!empty($proyek_awal_spk) OR !empty($proyek_akhir_spk)) AND $proyek_status == 2):?>
+              <?php if((!empty($proyek_awal_spk) OR !empty($proyek_akhir_spk)) AND $proyek_status == 3):?>
                 <?php 
                   $awalSPK1 = new DateTime($proyek_awal_spk);
                   $akhirSPK1 = new DateTime($proyek_akhir_spk); 

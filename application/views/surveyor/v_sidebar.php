@@ -26,6 +26,9 @@
           <a href="<?php echo base_url()?>Surveyor/Project"><i class="ti-calendar"></i><span class="right-nav-text">Project</span> </a>
         </li>
         <li>
+          <a href="<?php echo base_url()?>TindakanPerbaikan/tindakan_perbaikan_surveyor"><i class="ti-world"></i><span class="right-nav-text">Tindakan Perbaikan</span> </a>
+        </li>
+        <li>
           <a href="<?php echo base_url()?>Surveyor/Pengguna"><i class="ti-user"></i><span class="right-nav-text">Setting Akun</span> </a>
         </li>
          <!-- menu item mailbox-->

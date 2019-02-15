@@ -20,7 +20,7 @@ class Pengguna extends CI_Controller{
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_pengguna_admin',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}
 	}
 

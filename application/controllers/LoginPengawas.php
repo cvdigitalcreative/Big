@@ -32,13 +32,13 @@ class LoginPengawas extends CI_Controller{
     }
     
         function gagallogin(){
-            $url=base_url('Login');
+            $url=base_url('LoginPengawas');
             echo $this->session->set_flashdata('msg','<div class="alert alert-danger alert-dismissible fade show" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> Username Atau Password Salah</div>');
             redirect($url);
         }
-        function logout(){
+        function logout_pengawas(){
             $this->session->sess_destroy();
-            $url=base_url('Login');
+            $url=base_url('LoginPengawas');
             redirect($url);
         }
 }

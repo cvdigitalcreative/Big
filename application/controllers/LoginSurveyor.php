@@ -37,7 +37,7 @@ class LoginSurveyor extends CI_Controller{
         redirect($url);
     }
     
-    function logout(){
+    function logout_surveyor(){
         $this->session->sess_destroy();
             $url=base_url('LoginSurveyor');
         redirect($url);

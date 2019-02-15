@@ -78,6 +78,11 @@ class M_proyek extends CI_Model
         return $hasil;
     }
 
+    function updateStatus3($kode){
+        $hasil = $this->db->query("UPDATE proyek SET proyek_status = 3 WHERE proyek_id='$kode'");
+        return $hasil;
+    }
+
     function updateTglPenawaran($tanggal,$kode){
         $hasil = $this->db->query("UPDATE proyek SET proyek_tgl_penawaran = '$tanggal' WHERE proyek_id='$kode'");
         return $hasil;

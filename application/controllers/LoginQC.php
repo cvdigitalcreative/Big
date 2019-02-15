@@ -37,7 +37,7 @@ class LoginQC extends CI_Controller{
         redirect($url);
     }
     
-    function logout(){
+    function logout_qc(){
         $this->session->sess_destroy();
             $url=base_url('LoginQC');
         redirect($url);

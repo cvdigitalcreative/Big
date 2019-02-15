@@ -41,7 +41,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                      <p class="card-text text-dark">Project Message</p>
-                      <h4>100</h4>
+                   
                     </div>
                   </div>
                 </div>
@@ -54,7 +54,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                       <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
-                      <h4>100</h4>
+                    
                     </div>
                   </div>
                 </div>
@@ -696,7 +696,7 @@ wrapper -->
             </div>
             <div id="myModal" class="modal">
               <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
-              <img class="modal-content" id="img01">
+              <img class="modal-content" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   

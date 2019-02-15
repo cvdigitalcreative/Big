@@ -49,8 +49,8 @@
 <nav class="admin-header navbar navbar-default col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <!-- logo -->
   <div class="text-left navbar-brand-wrapper">
-    <a class="navbar-brand brand-logo" href="dashboard.html"><img src="<?php echo base_url()?>assets/admin/images/logo-dark.png" alt="" ></a>
-    <a class="navbar-brand brand-logo-mini" href="dashboard.html"><img src="<?php echo base_url()?>assets/admin/images/logo-icon-dark.png" alt=""></a>
+    <a class="navbar-brand brand-logo" href="<?php echo base_url();?>Admin/ProjectAdmin"><img src="<?php echo base_url()?>assets/images/logo.png" alt="" ></a>
+    <a class="navbar-brand brand-logo-mini" href="<?php echo base_url();?>Admin/ProjectAdmin"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a>
   </div>
   <!-- Top bar left -->
   <ul class="nav navbar-nav mr-auto">
@@ -61,7 +61,7 @@
   <!-- top bar right -->
   
   <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown ">
+    <!-- <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <i class="ti-bell"></i>
         <span class="badge badge-danger notification-status"> </span>
@@ -83,7 +83,7 @@
         <a href="<?php echo base_url()?>Admin/Inbox" class="dropdown-item"><?php echo $inbox_pesan;?> <small class="float-right text-muted time"><?php echo $inbox_tgl;?></small> </a>
         <?php endforeach;?>
       </div>
-    </li>
+    </li> -->
     <?php
               $id_admin=$this->session->userdata('idadmin');
               $q=$this->db->query("SELECT * FROM tbl_pengguna WHERE pengguna_id='$id_admin'");
@@ -91,7 +91,7 @@
     ?>
     <li class="nav-item dropdown mr-30">
       <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-        <img src="<?php echo base_url().'assets/admin/images/'.$c['pengguna_photo'];?>" alt="avatar">
+        <img src="<?php echo base_url().'assets/images/'.$c['pengguna_photo'];?>" alt="avatar">
       </a>
       
       <div class="dropdown-menu dropdown-menu-right">
@@ -99,7 +99,7 @@
           <div class="media">
             <div class="media-body">
               <h5 class="mt-0 mb-0"><?php echo $c['pengguna_nama'];?></h5>
-              <span><?php echo $c['pengguna_email'];?></span>
+              <span><?php echo $c['pengguna_nohp'];?></span>
             </div>
           </div>
         </div>

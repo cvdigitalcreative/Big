@@ -35,7 +35,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                      <p class="card-text text-dark">Project Message</p>
-                      <h4>100</h4>
+            
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                       <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
-                      <h4>100</h4>
+                     
                     </div>
                   </div>
                 </div>
@@ -99,6 +99,12 @@ wrapper -->
              <a href="<?php echo base_url()?>QC/ProjectQC/InputDataJadwal/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Upload Time Schedule</button></a>
              <a href="<?php echo base_url()?>QC/ProjectQC/InputDataUpah/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Upload File Upah</button></a>
              <a href="<?php echo base_url()?>QC/ProjectQC/InputDataBahan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Upload File Bahan</button></a>
+          </div>
+      </div>
+
+      <div class="card card-statistics mb-30"> 
+          <div class="card-body">
+             <a href="<?php echo base_url()?>Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Daftar Pekerjaan</button></a>
           </div>
       </div>
 
@@ -454,7 +460,7 @@ wrapper -->
             </div>
             <div id="myModal" class="modal1">
               <span onclick="this.parentElement.style.display='none'" class="close1">&times;</span>
-              <img class="modal-content1" id="img01">
+              <img class="modal-content1" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   
@@ -620,9 +626,7 @@ function showPosition(position) {
 <script>
 function myFunction(imgs) {
     var expandImg = document.getElementById("img01");
-    var imgText = document.getElementById("caption");
     expandImg.src = imgs.src;
-    imgText.innerHTML = imgs.alt;
     expandImg.parentElement.style.display = "block";
 }
 </script>

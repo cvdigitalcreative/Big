@@ -16,11 +16,11 @@ class Pengguna extends CI_Controller{
 			$kode=$this->session->userdata('idadmin');
 			$x['data']=$this->m_pengguna->get_pengguna_login($kode);
 			$y['title'] = 'Pengguna';
-			$this->load->view('v_header',$y);
+			$this->load->view('v_header_pengawas',$y);
 			$this->load->view('pengawas/v_sidebar');
 			$this->load->view('pengawas/v_pengguna',$x);
 		}else{
-			redirect("Pengawas/ProjectPengawas");
+			redirect("LoginPengawas");
 		}
 	}
 

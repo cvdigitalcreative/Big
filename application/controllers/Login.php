@@ -12,7 +12,7 @@ class Login extends CI_Controller{
         $username=strip_tags(str_replace("'", "", $this->input->post('username')));
         $password=strip_tags(str_replace("'", "", $this->input->post('password')));
         $u=$username;
-        $p=md5($password);
+        $p=$password;
         $cadmin=$this->m_login->cekadmin($u,$p);
         if($cadmin->num_rows() > 0){
             $this->session->set_userdata('masuk',true);

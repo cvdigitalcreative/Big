@@ -24,7 +24,7 @@
           <div class="card-body">
             <div class="col-xl-3 mb-10">
                   <a href="<?php echo base_url()?>Admin/ProjectAdmin/cetakPermintaanBarang/<?php echo $proyek_id;?>"  class="btn btn-primary btn-block ripple">
-                      <i class="fa fa-cloud-download pr-2"></i> Cetak Permintaan Barang
+                      <i class="fa fa-print pr-2"></i> Cetak Permintaan Barang
                   </a>
             </div>
             <?php endforeach; ?>

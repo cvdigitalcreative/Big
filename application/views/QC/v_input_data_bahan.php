@@ -18,14 +18,21 @@
         </div>
     </div>
     <!-- main body --> 
-    <div class="row" id="surveyor" style="display: block">   
+    <div class="row">   
       <div class="col-xl-12 mb-30">     
         <div class="card card-statistics h-100"> 
           <div class="card-body">
-            <div class="col-xl-12 mb-10">
-                  <a href="" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
-                      <i class="fa fa-plus pr-2"></i> Tambah Data
-                  </a>
+            <div class="col-xl-12 mb-10" style="display: flex">
+                  <div class="col-xl-6">
+                    <a href="" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
+                        <i class="fa fa-plus pr-2"></i> Tambah Data
+                    </a>
+                  </div>
+                  <div class="col-xl-6">
+                    <a href="<?php echo base_url()?>QC/ProjectQC/download_formatBahan" class="btn btn-primary btn-block ripple m-t-20">
+                        <i class="fa fa-download pr-2"></i> Download Format Est.Material
+                    </a>
+                  </div>    
             </div>
             <div class="table-responsive">
             <table id="datatable" class="table table-striped table-bordered p-0">
@@ -33,6 +40,7 @@
                   <tr>
                       <th>Tanggal Upload</th>
                       <th>Nama File</th>
+                      <th>Get Data</th>
                       <th>Download</th>
                   </tr>
               </thead>
@@ -46,6 +54,15 @@
                   <tr>
                       <td><?php echo $tanggal;?></td>
                       <td class="h-blue"><?php echo $file_nama;?></td>
+                      <?php 
+                        $q=$this->db->query("SELECT * FROM data_material WHERE proyek_id='$proyek_id'");
+                        $c=$q->num_rows();
+                        if($c == 0):
+                      ?>
+                        <td><a href="<?php echo base_url()?>QC/ProjectQC/getDataMaterial/<?php echo $file_nama?>/<?php echo $proyek_id;?>"><button class="btn btn-primary">Get Data</button></a></td>
+                      <?php else :?>
+                        <td><a href="<?php echo base_url()?>QC/ProjectQC/hapusDataMaterial/<?php echo $proyek_id;?>"><button class="btn btn-danger">Reset Data</button></a></td>
+                      <?php endif;?>
                       <td><a href="<?php echo base_url()?>QC/ProjectQC/download_bahan/<?php echo $id?>"><i class="fa fa-download"></i></a></td>
                   </tr>
                   <?php endforeach; ?> 
@@ -190,12 +207,24 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'Success',
-                    text: "Berita Berhasil dihapus.",
+                    text: "Data pekerjaan berhasil diambil",
                     showHideTransition: 'slide',
                     icon: 'success',
                     hideAfter: false,
                     position: 'bottom-right',
                     bgColor: '#7EC857'
+                });
+        </script>
+<?php elseif($this->session->flashdata('msg')=='hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Success',
+                    text: "Data pekerjaan berhasil dihapus",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'top-right',
+                    bgColor: 'red'
                 });
         </script>
     <?php else:?>

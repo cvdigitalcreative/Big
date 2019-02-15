@@ -34,7 +34,10 @@
           </ul>
         </li>
         <li>
-          <a href="<?php echo base_url()?>Admin/Pengguna"><i class="ti-user"></i><span class="right-nav-text">Setting Akun</span> </a>
+          <a href="<?php echo base_url()?>TindakanPerbaikan/tindakan_perbaikan_admin"><i class="ti-world"></i><span class="right-nav-text">Tindakan Perbaikan</span> </a>
+        </li>
+        <li>
+          <a href="<?php echo base_url()?>Admin/Pengguna"><i class="ti-user"></i><span class="right-nav-text">Pengaturan Akun</span> </a>
         </li>
          <!-- menu item mailbox-->
        <!--  <li>

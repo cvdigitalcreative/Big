@@ -13,11 +13,13 @@ class ProjectAdmin extends CI_Controller
         };
 		$this->load->model('m_proyek');
 		$this->load->model('m_files');
+        $this->load->model('m_laporan');
 		$this->load->model('m_surveyor');
 		$this->load->model('m_qc');
 		$this->load->model('m_foto');
 		$this->load->model('m_pengawas');
 		$this->load->library('upload');
+		$this->load->model('m_pekerjaan');
 		$this->load->model('m_permintaan_barang');
 		$this->load->helper('download');
 	}
@@ -33,7 +35,7 @@ class ProjectAdmin extends CI_Controller
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_project_admin',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}
 	}
 
@@ -69,11 +71,12 @@ class ProjectAdmin extends CI_Controller
 			$x['qc']				= $this->m_qc->get_all_qc();
 			$x['data'] 				= $this->m_proyek->forDetailproyek($kode);
 			$x['pengawas'] 			= $this->m_pengawas->get_all_pengawas();
+			$x['data_laporan'] 		= $this->m_laporan->get_lk_by_id_limit($kode);
 			$this->load->view('v_header',$y);
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_project_detail_admin',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}
 	}
 
@@ -81,12 +84,12 @@ class ProjectAdmin extends CI_Controller
 		if($this->session->userdata("akses") == 2){
 			$y['title']="BQ data";
 			$x['data'] = $this->m_proyek->forDetailproyek($kode);
-			$x['file'] = $this->m_files->get_file_bq();
+			$x['file'] = $this->m_files->get_file_bq_byid($kode);
 			$this->load->view('v_header',$y);
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_lihat_bq',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}	
 	}
 
@@ -94,12 +97,12 @@ class ProjectAdmin extends CI_Controller
 		if($this->session->userdata("akses") == 2){
 			$y['title']="Jadwal data";
 			$x['data'] = $this->m_proyek->forDetailproyek($kode);
-			$x['file'] = $this->m_files->get_file_jadwal();
+			$x['file'] = $this->m_files->get_file_jadwal_byid($kode);
 			$this->load->view('v_header',$y);
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_lihat_jadwal',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}	
 	}
 
@@ -112,8 +115,84 @@ class ProjectAdmin extends CI_Controller
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_lihat_permintaan_barang',$x);
 		}else{
-			redirect("");
+			redirect("Login");
 		}	
+	}
+
+	function LihatLaporanKeuangan($kode){
+		if($this->session->userdata("akses") == 2){
+			$y['title'] = "Laporan Keuangan Koordinator";
+			$x['proyek_id'] = $kode;
+			$x['data'] 	= $this->m_proyek->forDetailproyek($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lk_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/v_lihat_keuangan',$x);
+		}else{
+			redirect("Login");
+		}	
+	}
+
+	function LihatLaporanMaterial($kode){
+		if($this->session->userdata("akses") == 2){
+			$y['title'] = "Laporan Keuangan Material";
+			$x['proyek_id'] = $kode;
+			$x['data'] 	= $this->m_proyek->forDetailproyek($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lm_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM_lm($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/v_lihat_material',$x);
+		}else{
+			redirect("Login");
+		}	
+	}
+
+	function LihatLaporanUpah($kode){
+		if($this->session->userdata("akses") == 2){
+			$y['title'] = "Laporan Keuangan Material";
+			$x['proyek_id'] = $kode;
+			$x['data'] 	= $this->m_proyek->forDetailproyek($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lu_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM_lu($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/v_lihat_upah',$x);
+		}else{
+			redirect("Login");
+		}	
+	}
+
+
+	function cetakPermintaanBarang($kode){
+		if($this->session->userdata("akses") == 2){
+			$y['title']="Cetak Permintaan Barang";
+			$x['data'] = $this->m_proyek->forDetailproyek($kode);
+			$x['dataPB'] = $this->m_permintaan_barang->getPBbyProyekId($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/cetak_permintaan_barang',$x);
+		}else{
+			redirect("Login");
+		}
+	}
+
+	function cetakLaporanKeuangan($kode){
+		if($this->session->userdata("akses") == 2){
+			$id = $this->uri->segment(5);
+			$x['data_pengirim'] = $this->m_laporan->get_pengirim_by_id($id);
+			$y['title']="Cetak Laporan Keuangan";
+			$x['data'] = $this->m_proyek->forDetailproyek($kode);
+			$x['dataPB'] = $this->m_permintaan_barang->getPBbyProyekId($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lk_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/cetak_laporan_keuangan',$x);
+		}else{
+			redirect("Login");
+		}
 	}
 
 	function download_bq(){
@@ -162,18 +241,6 @@ class ProjectAdmin extends CI_Controller
 		 redirect("Admin/ProjectAdmin/detailforAdmin/$kode");
 	}
 
-	function cetakPermintaanBarang($kode){
-		if($this->session->userdata("akses") == 2){
-			$y['title']="Cetak Permintaan Barang";
-			$x['data'] = $this->m_proyek->forDetailproyek($kode);
-			$x['dataPB'] = $this->m_permintaan_barang->getPBbyProyekId($kode);
-			$this->load->view('v_header',$y);
-			$this->load->view('admin/v_sidebar');
-			$this->load->view('admin/cetak_permintaan_barang',$x);
-		}else{
-			redirect("");
-		}
-	}
 
 	function updateTglPenawaran($kode){
 		$tanggal = $this->input->post('tgl_penawaran');

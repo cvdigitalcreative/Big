@@ -3,21 +3,32 @@
     <div class="page-title">
       <div class="row">
           <div class="col-sm-6">
-              <h4 class="mb-0">Laporan keuangan</h4>              
+              <h4 class="mb-0">Laporan keuangan koordinator</h4>              
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
               <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
-              <li class="breadcrumb-item active">laporan keuangan</li>
+              <li class="breadcrumb-item active">laporan keuangan koordinator</li>
             </ol>
           </div>
         </div>
     </div>
     <!-- main body --> 
-    <div class="row" id="surveyor" style="display: block">   
+    <div class="row">
       <div class="col-xl-12 mb-30">     
         <div class="card card-statistics h-100"> 
           <div class="card-body">
+            <ul class="nav nav-tabs mb-10">
+                <li class="nav-item">
+                  <a class="nav-link active" href="<?php echo base_url()?>Pengawas/Keuangan/laporan_koordinator/<?php echo $proyek_id;?>">Koordinator</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url()?>Pengawas/Keuangan/laporan_material/<?php echo $proyek_id;?>">Material</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url()?>Pengawas/Keuangan/laporan_upah/<?php echo $proyek_id;?>">Upah</a>
+                </li>
+              </ul>
             <div class="col-xl-12 mb-10">
                   <a href="" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
                       <i class="fa fa-plus pr-2"></i> Tambah Laporan Keuangan
@@ -28,7 +39,7 @@
               <thead>
                   <tr>
                       <th>Tanggal</th>
-                      <th>Pengirim Penerima</th>
+                      <th>Nama Pembuat</th>
                       <th>Keterangan</th>
                       <th>Uang Masuk</th>
                       <th>Uang Keluar</th>
@@ -39,6 +50,7 @@
               </thead>
               <tbody>
                   <?php foreach ($data_laporan->result_array() as $i) :
+                       $id            = $i['lk_id'];
                        $tanggal       = $i['tanggal'];
                        $pengirim      = $i['lk_pengirim'];
                        $keterangan    = $i['lk_keterangan'];
@@ -57,10 +69,10 @@
                       <?php if(empty($nota)):?>
                         <td><button class="btn btn-danger">Nota tidak ada</button></td>
                       <?php else:?>
-                        <td><button class="btn btn-primary">Nota ada</button></td>
+                        <td><button class="btn btn-primary"><?php echo $nota?></button></td>
                       <?php endif;?>
                       <td>
-                          <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData"><span class="ti-pencil"></span></a>
+                          <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData<?php echo $id?>"><span class="ti-pencil"></span></a>
                       </td>
                   </tr>
                   <?php endforeach;?>
@@ -113,6 +125,64 @@
                                 <div class="col-md-12">
                                     <label class="control-label">Sisa Uang</label>
                                     <input class="form-control form-white" placeholder="200000" type="number" name="sisa_uang" required/>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                  <label class="control-label">Upload Nota</label>
+                                  <input style="padding-left: 1px" class="form-control" type="file" name="nota"/>
+                                </div>
+                            </div>          
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger ripple" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success ripple save-category" id="simpan">Save</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div> 
+        <?php endforeach;?>  
+
+        <?php foreach ($data_laporan->result_array() as $i) :
+                       $id            = $i['lk_id'];
+                       $tanggal       = $i['tanggal'];
+                       $pengirim      = $i['lk_pengirim'];
+                       $keterangan    = $i['lk_keterangan'];
+                       $uang_masuk    = $i['lk_uang_masuk'];
+                       $uang_keluar   = $i['lk_uang_keluar'];
+                       $sisa_uang     = $i['lk_sisa_uang'];
+                       $nota          = $i['lk_nota'];
+        ?>
+         <!-- Modal Add Data -->
+        <div class="modal" tabindex="-1" role="dialog" id="EditData<?php echo $id?>">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <form action="<?php echo base_url()?>Pengawas/Keuangan/update_laporan" method="post" enctype="multipart/form-data">
+                    <div class="modal-body p-20">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Keterangan</label>
+                                    <textarea rows="4" class="form-control form-white" name="keterangan" required><?php echo $keterangan;?></textarea>    
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Uang Masuk</label>
+                                    <input type="hidden" name="id" value="<?php echo $id;?>">
+                                    <input type="hidden" name="kode" value="<?php echo $row->proyek_id;?>">
+                                    <input type="hidden" name="nota1" value="<?php echo $nota;?>">
+                                    <input type="hidden" name="pengirim" value="<?php echo $this->session->userdata('nama'); ?>">
+                                    <input class="form-control form-white" placeholder="200000" type="number" name="uang_masuk" value="<?php echo $uang_masuk;?>" required/>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Uang Keluar</label>
+                                    <input class="form-control form-white" placeholder="200000" type="number" name="uang_keluar" value="<?php echo $uang_keluar;?>" required/>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Sisa Uang</label>
+                                    <input class="form-control form-white" placeholder="200000" type="number" name="sisa_uang" value="<?php echo $sisa_uang;?>" required/>
                                 </div>
                                 
                                 <div class="col-md-12">
@@ -224,7 +294,7 @@
         <script type="text/javascript">
                 $.toast({
                     heading: 'Info',
-                    text: "Data tidak berhasil ditambahkan",
+                    text: "Data diupdate",
                     showHideTransition: 'slide',
                     icon: 'info',
                     hideAfter: false,

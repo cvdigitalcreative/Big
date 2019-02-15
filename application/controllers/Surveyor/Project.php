@@ -18,6 +18,7 @@ class Project extends CI_Controller
 		$this->load->model('m_surveyor');
 		$this->load->model('m_qc');
 		$this->load->model('m_pengawas');
+		$this->load->model('m_pekerjaan');
 		$this->load->library('upload');
 	}
 	
@@ -30,11 +31,11 @@ class Project extends CI_Controller
 			$x['proyek_fase'] = $this->m_proyek->getProyekSurveyor($id,1);
 			$x['proyek_proses'] = $this->m_proyek->getProyekSurveyor($id,2);
 			$x['proyek_selesai'] = $this->m_proyek->getProyekSurveyor($id,3);
-			$this->load->view('v_header',$y);
+			$this->load->view('v_header_surveyor',$y);
 			$this->load->view('surveyor/v_sidebar');
 			$this->load->view('surveyor/v_project',$x);
 		}else{
-			redirect("");
+			redirect("LoginSurveyor");
 		}
 	}
 
@@ -70,7 +71,7 @@ class Project extends CI_Controller
 			$this->load->view('surveyor/v_sidebar');
 			$this->load->view('surveyor/v_project_detail',$x);
 		}else{
-			redirect("");
+			redirect("LoginSurveyor");
 		}	
 	}
 	//Surveyor End Function Project

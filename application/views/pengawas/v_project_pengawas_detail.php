@@ -35,7 +35,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                      <p class="card-text text-dark">Project Message</p>
-                      <h4>100</h4>
+
                     </div>
                   </div>
                 </div>
@@ -48,7 +48,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                       <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
-                      <h4>100</h4>
+
                     </div>
                   </div>
                 </div>
@@ -94,10 +94,11 @@ wrapper -->
 
       <div class="card card-statistics mb-30"> 
           <div class="card-body">
-             <a href="#" onclick="showTindakanPerbaikan()"><button class="btn btn-success mb-10">Tindakan Perbaikan</button></a>
-             <a href="<?php echo base_url()?>Pengawas/Laporan"><button class="btn btn-success mb-10">Laporan Harian</button></a>
-             <a href="<?php echo base_url()?>Pengawas/Keuangan/laporan_keuangan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Keuangan</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Laporan/Harian/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Harian</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Keuangan/laporan_koordinator/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Keuangan</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Daftar Pekerjaan</button></a>
              <a href="#" data-toggle="modal" data-target="#tambah-data"><button class="btn btn-success mb-10" >Permintaan Barang</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Daftar Pekerjaan</button></a>
           </div>
       </div>
 
@@ -450,7 +451,7 @@ wrapper -->
             </div>
             <div id="myModal" class="modal">
               <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
-              <img class="modal-content" id="img01">
+              <img class="modal-content" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   
@@ -480,180 +481,6 @@ wrapper -->
       </div>
     </footer>
     </div>
-
-
-<!--=================================
-wrapper -->
-
-    <div class="content-wrapper" id="content-tindakan-perbaikan" style="display: none;">
-      <div class="page-title">
-      <div class="row">
-          <div class="col-sm-6">
-              <h4 class="mb-0"> Tindakan Perbaikan</h4>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
-              <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item"><a href="#" onclick="showTindakanPerbaikan()" class="default-color">Project</a></li>
-              <li class="breadcrumb-item active">Tindakan Perbaikan</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-              <h5 class="mb-0"> Penerimaan Masalah</h5>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-8 mb-30">
-            <div class="card card-statistics h-100"> 
-                <div class="card-body">
-                      <div class="form-group col-md-12">
-                          <label class="control-label" for="fname">Masalah yang ditemukan / Kondisi Sekarang</label>
-                          <textarea rows="4" class="form-control form-white" name="xdeskripsi"></textarea>
-                          <label class="control-label mt-10" for="fname">Analisis Sebab Akibat</label>
-                          <textarea rows="4" class="form-control form-white" name="xdeskripsi"></textarea>
-                      </div>
-                  </div>
-              </div>  
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card card-statistics h-51"> 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">Hari / Tanggal / Jam </label>
-                    <input type="text" class="form-control" id="fname" name="xjudul" placeholder="Hari / Tanggal / Jam" required />
-                  </div>
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">Nama Penemu Masalah</label>
-                    <input type="text" class="form-control" id="fname" name="xjudul" placeholder="Nama Penemu Masalah" required />
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlFile1">Bagian Lokasi</label>
-                      <input type="text" class="form-control" id="fname" name="xjudul" placeholder="Lokasi" required />
-                  </div>
-                </div>
-            </div>  
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-              <h5 class="mb-0"> Perbaikan</h5>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-8 mb-30">
-            <div class="card card-statistics h-100"> 
-                <div class="card-body">
-                      <div class="form-group col-md-12">
-                          <label class="control-label" for="fname">Hal-Hal yang harus dikerjakan</label>
-                          <textarea rows="8" class="form-control form-white" name="xdeskripsi"></textarea>
-                          
-                      </div>
-                  </div>
-              </div>  
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card card-statistics h-51"> 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">P.Jawab </label>
-                    <input type="text" class="form-control" id="fname" name="xjudul" placeholder="P.Jawab" required />
-                  </div>
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">Target Tanggal Selesai</label>
-                    <input type="date" class="form-control" id="fname" name="xjudul" required />
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlFile1">Status</label>
-                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="xalbum">
-                          <option selected value="">Choose...</option>
-                          <option value="">Belum</option>
-                          <option value="">Selesai</option>                         
-                      </select>
-                  </div>
-                </div>
-            </div>  
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-6">
-              <h5 class="mb-0">Tindakan Perbaikan</h5>
-          </div>
-      </div>
-       <div class="row">
-        <div class="col-xl-8 mb-30">
-            <div class="card card-statistics h-100"> 
-                <div class="card-body">
-                      <div class="form-group col-md-12">
-                          <label class="control-label" for="fname">Hal-Hal yang harus dikerjakan</label>
-                          <textarea rows="8" class="form-control form-white" name="xdeskripsi"></textarea>
-                          
-                      </div>
-                  </div>
-              </div>  
-          </div>
-          <div class="col-xl-4 mb-30">
-            <div class="card card-statistics h-51"> 
-                <div class="card-body">
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">P.Jawab </label>
-                    <input type="text" class="form-control" id="fname" name="xjudul" placeholder="P.Jawab" required />
-                  </div>
-                  <div class="form-group">
-                    <label class="mr-sm-2" for="inlineFormCustomSelect">Target Tanggal Selesai</label>
-                    <input type="date" class="form-control" id="fname" name="xjudul"  required />
-                  </div>
-                  <div class="form-group">
-                      <label for="exampleFormControlFile1">Status</label>
-                       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="xalbum">
-                          <option selected value="">Choose...</option>
-                          <option value="">Belum</option>
-                          <option value="">Selesai</option>                         
-                      </select>
-                  </div>
-                </div>
-            </div>  
-          </div>
-      </div>
-
-      <div class="col-xl-12 mb-30">
-        <div class="card card-statistics h-51"> 
-          <div class="card-body" style="text-align: center;">
-            <button class="btn btn-primary">Kirim Tindakan Perbaikan</button>
-          </div>
-        </div>
-      </div>
-      
-     
-<!--=================================
- wrapper -->
-      
-<!--=================================
- footer -->
-
-    <footer class="bg-white p-4">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="text-center text-md-left">
-              <p class="mb-0"> &copy; Copyright <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span>. <a href="https://www.digitalcreative.web.id" target="blank"> Warung Kreatif </a> All Rights Reserved. </p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <ul class="text-center text-md-right">
-            <li class="list-inline-item"><a href="#">Terms & Conditions </a> </li>
-            <li class="list-inline-item"><a href="#">API Use Policy </a> </li>
-            <li class="list-inline-item"><a href="#">Privacy Policy </a> </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  </div><!-- main content wrapper end-->
-
 
   </div>
 </div>
@@ -756,21 +583,6 @@ wrapper -->
       y.style.display = "block";
     }
   }
-
-  function showTindakanPerbaikan(){
-    var x = document.getElementById("content-tindakan-perbaikan");
-    var y = document.getElementById("content-summary");
-    if(x.style.display === "none")
-    {
-      x.style.display = "block";
-      y.style.display = "none";
-    }
-    else
-    {
-      x.style.display = "none";
-      y.style.display = "block";
-    }
-  }
 </script>
 
 <script>
@@ -794,9 +606,7 @@ function showPosition(position) {
 <script>
 function myFunction(imgs) {
     var expandImg = document.getElementById("img01");
-    var imgText = document.getElementById("caption");
     expandImg.src = imgs.src;
-    imgText.innerHTML = imgs.alt;
     expandImg.parentElement.style.display = "block";
 }
 </script>

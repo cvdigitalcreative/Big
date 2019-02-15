@@ -58,10 +58,24 @@
             <div class="mt-20">
              <div class="clearfix">
                  <a class="text-dark mb-10 float-left" href="#">In Progress</a>
-                 <p class="mb-10 text-info float-right">80</p>
+                 <?php 
+                  $this->load->model('m_pekerjaan');
+                  $data1 = $this->m_pekerjaan->getdataPekerjaan($proyek_id);
+                   if($data1->num_rows() == 0){
+                    $persen1 = 0;
+                  }elseif($data1->num_rows() > 0){
+                    $data2 = $this->m_pekerjaan->SumPersen($proyek_id);
+                    $q=$data2->row_array();
+                    $sum_volume=$q['sum_volume'];
+                    $sum_progress=$q['sum_progress'];
+                    $persen = ($sum_progress/$sum_volume)*100;
+                    $persen1 = round($persen);
+                  }
+                 ?>
+                 <p class="mb-10 text-info float-right"><?php echo $persen1;?>%</p>
               </div>
               <div class="progress progress-small">
-                <div class="skill2-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="skill2-bar bg-info" role="progressbar" style="width: <?php echo $persen1;?>%" aria-valuenow="<?php echo $persen1;?>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
          
@@ -106,10 +120,24 @@
             <div class="mt-20">
              <div class="clearfix">
                  <a class="text-dark mb-10 float-left" href="#">In Progress</a>
-                 <p class="mb-10 text-info float-right">80</p>
+                 <?php 
+                  $this->load->model('m_pekerjaan');
+                  $data1 = $this->m_pekerjaan->getdataPekerjaan($proyek_id);
+                   if($data1->num_rows() == 0){
+                    $persen1 = 0;
+                  }elseif($data1->num_rows() > 0){
+                    $data2 = $this->m_pekerjaan->SumPersen($proyek_id);
+                    $q=$data2->row_array();
+                    $sum_volume=$q['sum_volume'];
+                    $sum_progress=$q['sum_progress'];
+                    $persen = ($sum_progress/$sum_volume)*100;
+                    $persen1 = round($persen);
+                  }
+                 ?>
+                 <p class="mb-10 text-info float-right"><?php echo $persen1;?>%</p>
               </div>
               <div class="progress progress-small">
-                <div class="skill2-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="skill2-bar bg-info" role="progressbar" style="width: <?php echo $persen1;?>%" aria-valuenow="<?php echo $persen1;?>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
            
@@ -166,10 +194,24 @@
             <div class="mt-20">
              <div class="clearfix">
                  <a class="text-dark mb-10 float-left" href="#">In Progress</a>
-                 <p class="mb-10 text-info float-right">80</p>
+                 <?php 
+                  $this->load->model('m_pekerjaan');
+                  $data1 = $this->m_pekerjaan->getdataPekerjaan($proyek_id);
+                   if($data1->num_rows() == 0){
+                    $persen1 = 0;
+                  }elseif($data1->num_rows() > 0){
+                    $data2 = $this->m_pekerjaan->SumPersen($proyek_id);
+                    $q=$data2->row_array();
+                    $sum_volume=$q['sum_volume'];
+                    $sum_progress=$q['sum_progress'];
+                    $persen = ($sum_progress/$sum_volume)*100;
+                    $persen1 = round($persen);
+                  }
+                 ?>
+                 <p class="mb-10 text-info float-right"><?php echo $persen1;?>%</p>
               </div>
               <div class="progress progress-small">
-                <div class="skill2-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="skill2-bar bg-info" role="progressbar" style="width: <?php echo $persen1;?>%" aria-valuenow="<?php echo $persen1;?>" aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
            

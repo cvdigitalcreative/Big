@@ -40,7 +40,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                       <a href="#" onclick="showMessage()" class="card-text text-dark">Project Message</a>
-                      <h4>100</h4>
+                     
                     </div>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ wrapper -->
                     </div>
                     <div class="float-left pl-20">
                       <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
-                      <h4>100</h4>
+                      
                     </div>
                   </div>
                 </div>
@@ -146,10 +146,19 @@ wrapper -->
 
         <div class="card card-statistics mb-30"> 
           <div class="card-body">
+            <a href="<?php echo base_url()?>Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Daftar Pekerjaan</button></a>
+          </div>
+        </div>
+
+        <div class="card card-statistics mb-30"> 
+          <div class="card-body">
             <h5 class="card-title">Lihat File</h5>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatBQ/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat BQ </button></a>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatJadwal/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Jadwal</button></a>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatPermintaanBarang/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Permintaan Barang</button></a>
+             <?php foreach ($data_laporan->result() as $i): ?>
+              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatLaporanKeuangan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Laporan Keuangan</button></a>
+             <?php endforeach;?>
           </div>
         </div>
 
@@ -665,7 +674,7 @@ wrapper -->
             </div>
             <div id="myModal" class="modal1">
               <span onclick="this.parentElement.style.display='none'" class="close1">&times;</span>
-              <img class="modal-content1" id="img01">
+              <img class="modal-content1" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   
@@ -781,7 +790,13 @@ wrapper -->
   }
 </script>
 
-
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("img01");
+    expandImg.src = imgs.src;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
 
 <script src="<?php echo base_url().'assets/admin/js/jquery.toast.min.js'?>"></script>
 <?php if($this->session->flashdata('msg')=='error'):?>

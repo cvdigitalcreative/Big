@@ -27,23 +27,24 @@
 				$this->load->view('admin/v_sidebar');
 				$this->load->view('admin/v_data_surveyor',$x);
 			}else{
-				redirect("");
+				redirect("Login");
 			}
 		}
 
 		function addSurveyor(){
-				$config['upload_path'] = './assets/images/'; //path folder
-	            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-	            $config['max_size']             = 0; //type yang dapat diakses bisa anda sesuaikan
-	            // 	 //nama yang terupload nantinya
+
+				//Config Upload File 
+				$config['upload_path'] = './assets/images/'; //Tempat menyimpan file
+	            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //tipe filenya 
+	            $config['max_size']             = 0; //size limits
 
 	            $this->upload->initialize($config);
-	            if(!empty($_FILES['filefoto']['name']))
+	            if(!empty($_FILES['filefoto']['name']))// cek apakah file ada di form
 	            {
-	                if ($this->upload->do_upload('filefoto'))
+	                if ($this->upload->do_upload('filefoto'))// cek kondisi do_upload == true
 	                {
-	                       	$gbr = $this->upload->data();
-	                        $gambar=$gbr['file_name'];
+	                       	$gbr = $this->upload->data(); // upload data 
+	                        $gambar=$gbr['file_name']; //ambil file nama
 	                        $nama=strip_tags($this->input->post('xnama'));
 	                        $alamat=$this->input->post('xalamat');
 							$hp=strip_tags($this->input->post('xhp'));
@@ -125,7 +126,7 @@
 				$this->load->view('admin/v_sidebar');
 				$this->load->view('admin/v_data_qc',$x);
 			}else{
-				redirect("");
+				redirect("Login");
 			}
 		}
 
@@ -223,7 +224,7 @@
 				$this->load->view('admin/v_sidebar');
 				$this->load->view('admin/v_data_pengawas',$x);
 			}else{
-				redirect("");
+				redirect("Login");
 			}
 		}
 
