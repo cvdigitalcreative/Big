@@ -61,7 +61,7 @@
   <!-- top bar right -->
   
   <ul class="nav navbar-nav ml-auto">
-    <li class="nav-item dropdown ">
+    <!-- <li class="nav-item dropdown ">
       <a class="nav-link top-nav" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
         <i class="ti-bell"></i>
         <span class="badge badge-danger notification-status"> </span>
@@ -83,7 +83,7 @@
         <a href="<?php echo base_url()?>Admin/Inbox" class="dropdown-item"><?php echo $inbox_pesan;?> <small class="float-right text-muted time"><?php echo $inbox_tgl;?></small> </a>
         <?php endforeach;?>
       </div>
-    </li>
+    </li> -->
     <?php
               $id_admin=$this->session->userdata('idadmin');
               $q=$this->db->query("SELECT * FROM pengawas WHERE pengawas_id='$id_admin'");

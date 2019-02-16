@@ -20,6 +20,50 @@ class Pekerjaan extends CI_Controller
 
 	}
 
+	public function foto_pekerjaan($proyek_id){
+		$id = $this->uri->segment(5);
+		$y['title'] = 'Foto Pekerjaan';
+		$x['proyek_id'] = $proyek_id;
+		$x['dp_id'] = $id;
+		$pekerjaan = $this->m_pekerjaan->getdataPekerjaanID($id);
+		$jenis = $pekerjaan->row_array();
+		$x['jenis_pekerjaan'] = $jenis['dp_jenis_pekerjaan'];
+		$x['foto_pekerjaan'] = $this->m_pekerjaan->getFotoPekerjaan($proyek_id, $id);
+		$this->load->view('v_header_pengawas',$y);
+		$this->load->view('pengawas/v_sidebar');
+		$this->load->view('pengawas/v_foto_pekerjaan',$x);
+
+	}
+
+	function simpan_foto(){
+
+		$config['upload_path'] 	 = './assets/foto_proyek/'; //path folder
+	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+	    $config['max_size'] = 0; //type yang dapat diakses bisa anda sesuaikan
+	            // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+	    $this->upload->initialize($config);
+
+	    if(!empty($_FILES['foto_file']['name']))
+	    {
+	    	echo "r=tidak";
+	        if ($this->upload->do_upload('foto_file'))
+	        {
+	        	echo "string";
+	   //          $fl = $this->upload->data();
+	   //          $foto=$fl['file_name'];
+	   //          $dp_id = $this->input->post('dp_id');
+	   //          $proyek_id = $this->input->post('proyek_id');
+	   //          $this->m_pekerjaan->insertFoto($foto,$proyek_id, $dp_id);
+	   //          echo $this->session->set_flashdata('msg','success');
+				// redirect("Pengawas/Pekerjaan/fotopekerjaan/$proyek_id/$dp_id");				
+			}
+	    }else{
+			echo "Puji";
+		}
+		
+	}
+
 	public function lihat_perkerjaan($proyek_id)
 	{
 			if($this->session->userdata("akses") == 3){	

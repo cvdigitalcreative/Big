@@ -38,6 +38,7 @@
                       <th>Volume</th>
                       <th>Pekerjaan Selesai</th>
                       <th>Progress(%)</th>
+                      <th>Upload Foto Pekerjaan</th>
                       <th style="width:20px;">Aksi</th>
                   </tr>
               </thead>
@@ -57,8 +58,8 @@
                       <td><?php echo $volume." ".$satuan?></td>
                       <td><?php echo $perkerjaan_selesai." ".$satuan?></td>
                       <td><?php echo $persen1."%";?></td>
-                      <td><a href="" data-toggle="modal" data-target="#edit-data<?php echo $id?>" class="btn btn-primary btn-block ripple m-t-20">
-                      <i class="fa fa-plus pr-2"></i> Update Pekerjaan</a></td>
+                      <td><a href="<?php echo base_url()?>Pengawas/Pekerjaan/foto_pekerjaan/<?php echo $proyek_id?>/<?php echo $id?>" class="btn btn-success btn-block ripple m-t-20"><i class="fa fa-plus pr-2"></i> Foto Pekerjaan</a></td>
+                      <td><a href="" data-toggle="modal" data-target="#edit-data<?php echo $id?>" class="btn btn-primary btn-block ripple m-t-20"><i class="fa fa-plus pr-2"></i> Update Pekerjaan</a></td>
                   </tr>
                 <?php endforeach;?>
               </tbody>

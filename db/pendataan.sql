@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 15, 2019 at 04:24 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Host: localhost
+-- Generation Time: Feb 16, 2019 at 03:57 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -443,6 +445,20 @@ CREATE TABLE `foto_parkiran` (
 INSERT INTO `foto_parkiran` (`fp_id`, `fp_gambar`, `fp_tanggal`, `proyek_id`) VALUES
 (1, '0f1ea92dcb4d291d6555be2eb7012e0e.jpeg', '2019-01-14 17:50:00', 4),
 (2, '1.jpg', '2019-01-14 17:50:00', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `foto_pekerjaan`
+--
+
+CREATE TABLE `foto_pekerjaan` (
+  `fpk_id` int(11) NOT NULL,
+  `fpk_foto` varchar(100) DEFAULT NULL,
+  `fpk_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `dp_id` int(11) NOT NULL,
+  `proyek_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -1113,6 +1129,12 @@ ALTER TABLE `foto_parkiran`
   ADD PRIMARY KEY (`fp_id`);
 
 --
+-- Indexes for table `foto_pekerjaan`
+--
+ALTER TABLE `foto_pekerjaan`
+  ADD PRIMARY KEY (`fpk_id`);
+
+--
 -- Indexes for table `foto_pintu_pintu`
 --
 ALTER TABLE `foto_pintu_pintu`
@@ -1260,211 +1282,260 @@ ALTER TABLE `tindakan_perbaikan`
 --
 ALTER TABLE `catatan`
   MODIFY `catatan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `data_harian`
 --
 ALTER TABLE `data_harian`
   MODIFY `dh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `data_material`
 --
 ALTER TABLE `data_material`
   MODIFY `dm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
 --
 -- AUTO_INCREMENT for table `data_pekerjaan`
 --
 ALTER TABLE `data_pekerjaan`
   MODIFY `dp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT for table `data_upah`
 --
 ALTER TABLE `data_upah`
   MODIFY `du_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_atap`
 --
 ALTER TABLE `foto_atap`
   MODIFY `fa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_bahu_jalan`
 --
 ALTER TABLE `foto_bahu_jalan`
   MODIFY `fbj_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_belakang`
 --
 ALTER TABLE `foto_belakang`
   MODIFY `fb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_dak`
 --
 ALTER TABLE `foto_dak`
   MODIFY `fd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `foto_depan`
 --
 ALTER TABLE `foto_depan`
   MODIFY `ftd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `foto_dinding`
 --
 ALTER TABLE `foto_dinding`
   MODIFY `fdd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_folding_gate`
 --
 ALTER TABLE `foto_folding_gate`
   MODIFY `ffg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_kanan`
 --
 ALTER TABLE `foto_kanan`
   MODIFY `fk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_kiri`
 --
 ALTER TABLE `foto_kiri`
   MODIFY `fkr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `foto_kondisi_bangunan`
 --
 ALTER TABLE `foto_kondisi_bangunan`
   MODIFY `fkb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `foto_kwh_listrik`
 --
 ALTER TABLE `foto_kwh_listrik`
   MODIFY `fkl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_lantai`
 --
 ALTER TABLE `foto_lantai`
   MODIFY `fl_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_pam`
 --
 ALTER TABLE `foto_pam`
   MODIFY `fp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_parkiran`
 --
 ALTER TABLE `foto_parkiran`
   MODIFY `fp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `foto_pekerjaan`
+--
+ALTER TABLE `foto_pekerjaan`
+  MODIFY `fpk_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `foto_pintu_pintu`
 --
 ALTER TABLE `foto_pintu_pintu`
   MODIFY `fpp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `foto_proyek_surveyor`
 --
 ALTER TABLE `foto_proyek_surveyor`
   MODIFY `fps_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `foto_tanah_belakang`
 --
 ALTER TABLE `foto_tanah_belakang`
   MODIFY `ftb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `foto_tetangga_kanan`
 --
 ALTER TABLE `foto_tetangga_kanan`
   MODIFY `ftk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `foto_tetangga_kiri`
 --
 ALTER TABLE `foto_tetangga_kiri`
   MODIFY `ftkr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `foto_toilet`
 --
 ALTER TABLE `foto_toilet`
   MODIFY `ft_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `laporan_harian`
 --
 ALTER TABLE `laporan_harian`
   MODIFY `lh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `laporan_keuangan`
 --
 ALTER TABLE `laporan_keuangan`
   MODIFY `lk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `laporan_material`
 --
 ALTER TABLE `laporan_material`
   MODIFY `lm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `laporan_upah`
 --
 ALTER TABLE `laporan_upah`
   MODIFY `lu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `pengawas`
 --
 ALTER TABLE `pengawas`
   MODIFY `pengawas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `permintaan_barang`
 --
 ALTER TABLE `permintaan_barang`
   MODIFY `pb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `proyek`
 --
 ALTER TABLE `proyek`
   MODIFY `proyek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `proyek_file`
 --
 ALTER TABLE `proyek_file`
   MODIFY `pf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_bahan`
 --
 ALTER TABLE `proyek_file_bahan`
   MODIFY `pfb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_jadwal`
 --
 ALTER TABLE `proyek_file_jadwal`
   MODIFY `pfj_id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `proyek_file_upah`
 --
 ALTER TABLE `proyek_file_upah`
   MODIFY `pfu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `qc`
 --
 ALTER TABLE `qc`
   MODIFY `qc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `super_admin`
 --
 ALTER TABLE `super_admin`
   MODIFY `suadmin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `surveyor`
 --
 ALTER TABLE `surveyor`
   MODIFY `surveyor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
   MODIFY `pengguna_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tindakan_perbaikan`
 --
 ALTER TABLE `tindakan_perbaikan`
   MODIFY `td_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

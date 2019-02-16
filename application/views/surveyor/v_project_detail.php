@@ -694,9 +694,9 @@ wrapper -->
               </div>
 
             </div>
-            <div id="myModal" class="modal">
-              <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
-              <img class="modal-content" id="img01" style="margin-top: 6%;">
+            <div id="myModal" class="modal1">
+              <span onclick="this.parentElement.style.display='none'" class="close1">&times;</span>
+              <img class="modal-content1" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   
