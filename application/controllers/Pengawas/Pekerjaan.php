@@ -37,7 +37,7 @@ class Pekerjaan extends CI_Controller
 
 	function simpan_foto(){
 
-		$config['upload_path'] 	 = './assets/foto_proyek/'; //path folder
+		$config['upload_path'] 	 = './assets/foto_pekerjaan/'; //path folder
 	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
 	    $config['max_size'] = 0; //type yang dapat diakses bisa anda sesuaikan
 	            // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
@@ -46,20 +46,18 @@ class Pekerjaan extends CI_Controller
 
 	    if(!empty($_FILES['foto_file']['name']))
 	    {
-	    	echo "r=tidak";
 	        if ($this->upload->do_upload('foto_file'))
 	        {
-	        	echo "string";
-	   //          $fl = $this->upload->data();
-	   //          $foto=$fl['file_name'];
-	   //          $dp_id = $this->input->post('dp_id');
-	   //          $proyek_id = $this->input->post('proyek_id');
-	   //          $this->m_pekerjaan->insertFoto($foto,$proyek_id, $dp_id);
-	   //          echo $this->session->set_flashdata('msg','success');
-				// redirect("Pengawas/Pekerjaan/fotopekerjaan/$proyek_id/$dp_id");				
+	            $fl = $this->upload->data();
+	            $foto=$fl['file_name'];
+	            $dp_id = $this->input->post('dp_id');
+	            $proyek_id = $this->input->post('proyek_id');
+	            $this->m_pekerjaan->insertFoto($foto,$proyek_id, $dp_id);
+	            echo $this->session->set_flashdata('msg','success');
+				redirect("Pengawas/Pekerjaan/foto_pekerjaan/$proyek_id/$dp_id");				
 			}
 	    }else{
-			echo "Puji";
+			redirect();
 		}
 		
 	}

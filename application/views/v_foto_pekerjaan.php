@@ -7,7 +7,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-              <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo $this->agent->referrer();?>" class="default-color">Back</a></li>
               <li class="breadcrumb-item active">Images View</li>
             </ol>
           </div>
@@ -19,11 +19,6 @@
         <div class="card card-statistics h-100"> 
           <div class="card-body">   
             <div class="row1">
-              <div class="col-xl-3 mb-10">
-                <a href="#" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
-                      <i class="fa fa-plus pr-2"></i> Tambah Foto
-                </a>
-              </div>
               <div class="d-block">
                 <h5 class="mb-10 mt-30 card-title border-0 pb-0">Foto <?php echo $jenis_pekerjaan;?></h5>
               </div>            
@@ -40,34 +35,6 @@
           </div>
         </div>   
       </div> 
-
-      <!-- Modal Add Data -->
-        <div class="modal" tabindex="-1" role="dialog" id="tambah-data">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Tambah data foto pekerjaan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <form action="<?php echo base_url()?>Pengawas/Pekerjaan/simpan_foto" method="post" enctype="multipart/form-data">
-                    <div class="modal-body p-20">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Foto</label>
-                                    <input type="hidden" name="proyek_id" value="<?php echo $proyek_id;?>">
-                                    <input type="hidden" name="dp_id" value="<?php echo $dp_id;?>">
-                                    <input class="form-control" type="file" name="foto_file" required/>
-                                </div>
-                            </div>          
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger ripple" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success ripple save-category" id="simpan">Save</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
   </div>
 
  <!--=================================

@@ -99,7 +99,7 @@
           <div class="media">
             <div class="media-body">
               <h5 class="mt-0 mb-0"><?php echo $c['pengguna_nama'];?></h5>
-              <span><?php echo $c['pengguna_email'];?></span>
+              <span><?php echo $c['pengguna_nohp'];?></span>
             </div>
           </div>
         </div>

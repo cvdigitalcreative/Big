@@ -25,6 +25,7 @@
                       <th>Volume</th>
                       <th>Pekerjaan Selesai</th>
                       <th>Progress(%)</th>
+                      <th>Foto Pekerjaan</th>
                   </tr>
               </thead>
               <tbody>
@@ -43,6 +44,7 @@
                       <td><?php echo $volume." ".$satuan?></td>
                       <td><?php echo $perkerjaan_selesai." ".$satuan?></td>
                       <td><?php echo $persen1."%";?></td>
+                      <td><a href="<?php echo base_url()?>Pekerjaan/foto_pekerjaan/<?php echo $proyek_id?>/<?php echo $id?>" class="btn btn-success btn-block ripple m-t-20"><i class="fa fa-plus pr-2"></i> Foto Pekerjaan</a></td>
                   </tr>
                 <?php endforeach;?>
               </tbody>
