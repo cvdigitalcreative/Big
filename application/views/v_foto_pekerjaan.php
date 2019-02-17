@@ -1,61 +1,45 @@
+<!--=================================start wrapper 3 --> 
 <div class="content-wrapper">
     <div class="page-title">
       <div class="row">
           <div class="col-sm-6">
-              <h4 class="mb-0">Lihat Progress</h4>              
+              <h4 class="mb-0"> Images view</h4>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
               <li class="breadcrumb-item"><a href="<?php echo $this->agent->referrer();?>" class="default-color">Back</a></li>
-              <li class="breadcrumb-item active">Lihat Progress</li>
+              <li class="breadcrumb-item active">Images View</li>
             </ol>
           </div>
         </div>
     </div>
     <!-- main body --> 
     <div class="row">   
-      <div class="col-xl-12 mb-30">     
+      <div class="col-md-12 mb-30">     
         <div class="card card-statistics h-100"> 
-          <div class="card-body">
-            <div class="table-responsive">
-            <table id="datatable" class="table table-striped table-bordered p-0">
-              <thead>
-                  <tr>
-                      <th>Pekerjaan</th>
-                      <th>Volume</th>
-                      <th>Pekerjaan Selesai</th>
-                      <th>Progress(%)</th>
-                      <th>Foto Pekerjaan</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <?php foreach ($data_pekerjaan->result_array() as $i) :
-                       $id                  = $i['dp_id'];
-                       $pekerjaan           = $i['dp_jenis_pekerjaan'];
-                       $satuan              = $i['dp_satuan'];
-                       $volume              = $i['dp_volume'];
-                       $perkerjaan_selesai  = $i['dp_progress'];
-                       $proyek_id           = $i['proyek_id'];
-                       $persen = ($perkerjaan_selesai/$volume)*100;
-                       $persen1 = round($persen);
-                  ?>
-                  <tr>
-                      <td><?php echo $pekerjaan;?></td>
-                      <td><?php echo $volume." ".$satuan?></td>
-                      <td><?php echo $perkerjaan_selesai." ".$satuan?></td>
-                      <td><?php echo $persen1."%";?></td>
-                      <td><a href="<?php echo base_url()?>Pekerjaan/foto_pekerjaan/<?php echo $proyek_id?>/<?php echo $id?>" class="btn btn-success btn-block ripple m-t-20"><i class="fa fa-plus pr-2"></i> Foto Pekerjaan</a></td>
-                  </tr>
-                <?php endforeach;?>
-              </tbody>
-           </table>
-          </div>
+          <div class="card-body">   
+            <div class="row1">
+              <div class="d-block">
+                <h5 class="mb-10 mt-30 card-title border-0 pb-0">Foto <?php echo $jenis_pekerjaan;?></h5>
+              </div>            
+              <div class="column1">
+                <?php foreach ($foto_pekerjaan->result() as $row): ?>
+                  <img class="mb-2" src="<?php echo base_url()?>assets/foto_pekerjaan/<?php echo $row->fpk_foto;?>" alt="Lights" style="width:14%;height: 14%;" onclick="myFunction(this);">
+                <?php endforeach; ?>
+              </div>             
+            </div>
+            <div id="myModal" class="modal1">
+              <span onclick="this.parentElement.style.display='none'" class="close1">&times;</span>
+              <img class="modal-content1" id="img01" style="margin-top: 6%;">
+            </div>
           </div>
         </div>   
       </div> 
   </div>
 
-    
+ <!--=================================
+ wrapper -->
+      
 <!--=================================
  footer -->
  
@@ -75,7 +59,8 @@
         </div>
       </div>
     </footer>
-    </div> 
+    </div>
+
   </div>
 </div>
 </div>
@@ -116,7 +101,7 @@
 <script src="<?php echo base_url()?>assets/admin/js/sweetalert2.js"></script>
 
 <!-- toastr -->
-<script src="<?php echo base_url().'assets/admin/js/jquery.toast.min.js'?>"></script>
+<!-- <script src="<?php echo base_url()?>assets/admin/js/toastr.js"></script> -->
 
 <!-- validation -->
 <script src="<?php echo base_url()?>assets/admin/js/validation.js"></script>
@@ -126,33 +111,56 @@
  
 <!-- custom -->
 <script src="<?php echo base_url()?>assets/admin/js/custom.js"></script>
+
+
+<script src="<?php echo base_url().'assets/admin/js/jquery.toast.min.js'?>"></script>
  
 </body>
-</html> 
+</html>
 
-<?php if($this->session->flashdata('msg')=='info'):?>
-        <script type="text/javascript">
-                $.toast({
-                    heading: 'Info',
-                    text: "Edit profile proyek berhasil dibuat.",
-                    showHideTransition: 'slide',
-                    icon: 'success',
-                    hideAfter: false,
-                    position: 'top-right',
-                    bgColor: '#00C9E6'
-                });
-        </script>
-<?php elseif($this->session->flashdata('msg')=='success'):?>
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("img01");
+    expandImg.src = imgs.src;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+<?php if($this->session->flashdata('msg')=='success'):?>
         <script type="text/javascript">
                 $.toast({
                     heading: 'Success',
-                    text: "Laporan dibuat, Silahkan masukan data laporannya",
+                    text: "Foto berhasil masukkan.",
                     showHideTransition: 'slide',
-                    icon: 'info',
+                    icon: 'success',
                     hideAfter: false,
                     position: 'top-right',
                     bgColor: '#7EC857'
                 });
         </script>
-<?php else:?>
+<!-- <?php elseif($this->session->flashdata('msg')=='info'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Info',
+                    text: "Berita berhasil di update",
+                    showHideTransition: 'slide',
+                    icon: 'info',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#00C9E6'
+                });
+        </script>
+<?php elseif($this->session->flashdata('msg')=='success-hapus'):?>
+        <script type="text/javascript">
+                $.toast({
+                    heading: 'Success',
+                    text: "Berita Berhasil dihapus.",
+                    showHideTransition: 'slide',
+                    icon: 'success',
+                    hideAfter: false,
+                    position: 'bottom-right',
+                    bgColor: '#7EC857'
+                });
+        </script> -->
+    <?php else:?>
 <?php endif;?>
