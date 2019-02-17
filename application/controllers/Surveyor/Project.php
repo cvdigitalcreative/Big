@@ -67,7 +67,7 @@ class Project extends CI_Controller
 			$x['userQC'] 			= $this->m_proyek->getQCProyek($kode);
 			$x['userPengawas'] 		= $this->m_proyek->getPengawasProyek($kode);
 			$x['data'] 				= $this->m_proyek->forDetailproyek($kode);
-			$this->load->view('v_header',$y);
+			$this->load->view('v_header_surveyor',$y);
 			$this->load->view('surveyor/v_sidebar');
 			$this->load->view('surveyor/v_project_detail',$x);
 		}else{

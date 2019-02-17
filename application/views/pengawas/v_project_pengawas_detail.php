@@ -96,7 +96,6 @@ wrapper -->
           <div class="card-body">
              <a href="<?php echo base_url()?>Pengawas/Laporan/Harian/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Harian</button></a>
              <a href="<?php echo base_url()?>Pengawas/Keuangan/laporan_koordinator/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Keuangan</button></a>
-             <a href="<?php echo base_url()?>Pengawas/Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Daftar Pekerjaan</button></a>
              <a href="#" data-toggle="modal" data-target="#tambah-data"><button class="btn btn-success mb-10" >Permintaan Barang</button></a>
              <a href="<?php echo base_url()?>Pengawas/Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Daftar Pekerjaan</button></a>
           </div>
@@ -449,9 +448,9 @@ wrapper -->
               </div>
 
             </div>
-            <div id="myModal" class="modal">
-              <span onclick="this.parentElement.style.display='none'" class="close">&times;</span>
-              <img class="modal-content" id="img01" style="margin-top: 6%;">
+            <div id="myModal" class="modal1">
+              <span onclick="this.parentElement.style.display='none'" class="close1">&times;</span>
+              <img class="modal-content1" id="img01" style="margin-top: 6%;">
             </div>
           </div>
         </div>   
