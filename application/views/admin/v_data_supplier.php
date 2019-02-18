@@ -26,12 +26,10 @@
             <table id="datatable" class="table table-striped table-bordered p-0">
               <thead>
                   <tr>
-                    <th>Foto</th>
-                    <th>Nama Lengkap</th>
+                    <th>No</th>
+                    <th>Nama Toko</th>
                     <th>Nomor HP</th>
                     <th>Alamat</th>
-                    <th>Username</th>
-                    <th>Password</th>
                     <th>Aksi</th>
                   </tr>
               </thead>
@@ -40,29 +38,20 @@
                     $no=0;
                     foreach ($data->result_array() as $i) :
                        $no++;
-                       $id=$i['surveyor_id'];
-                       $nama=$i['surveyor_nama'];
-                       $alamat=$i['surveyor_alamat'];
-                       $hp=$i['surveyor_hp'];
-                       $username=$i['surveyor_username'];
-                       $password=$i['surveyor_password'];
-                       $foto=$i['surveyor_foto'];
+                       $id=$i['supplier_id'];
+                       $nama=$i['supplier_nama'];
+                       $alamat=$i['supplier_alamat'];
+                       $hp=$i['supplier_nohp'];
                   ?>
                   <tr>
-                    <?php if(empty($foto)):?>
-                      <td><img width="60" height="60" src="<?php echo base_url().'assets/images/a.jpg';?>"></td>
-                    <?php else:?>
-                      <td><img width="60" height="60" src="<?php echo base_url().'assets/images/'.$foto;?>"></td>
-                    <?php endif;?>
-                      <td><?php echo $nama?></td>
-                      <td><?php echo $hp?></td>
-                      <td><?php echo $alamat?></td>
-                      <td><?php echo $username?></td>
-                      <td><?php echo $password?></td>
-                      <td>
-                        <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData<?php echo $id?>"><span class="ti-pencil"></span></a>
-                        <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#HapusData<?php echo $id?>"><span class="ti-trash"></span></a>
-                      </td>
+                    <td><?php echo $no?></td>
+                    <td><?php echo $nama?></td>
+                    <td><?php echo $hp?></td>
+                    <td><?php echo $alamat?></td>
+                    <td>
+                      <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData<?php echo $id?>"><span class="ti-pencil"></span></a>
+                      <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#HapusData<?php echo $id?>"><span class="ti-trash"></span></a>
+                    </td>
                   </tr>
                 <?php endforeach; ?>
               </tbody>
@@ -80,11 +69,11 @@
                         <h5 class="modal-title">Tambah Data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                    <form action="<?php echo base_url()?>Admin/Data_User/addSurveyor" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url()?>Admin/Data_User/addSupplier" method="post" enctype="multipart/form-data">
                       <div class="modal-body p-20">
                               <div class="row">
                                   <div class="col-md-12">
-                                      <label class="control-label">Nama Lengkap</label>
+                                      <label class="control-label">Nama Toko</label>
                                       <input class="form-control form-white" placeholder="Masukkan Nama Lengkap" type="text" name="xnama" required/>
                                   </div>
                                   <div class="col-md-12">
@@ -92,20 +81,8 @@
                                       <input class="form-control form-white" placeholder="Masukkan nomor hp" type="number" name="xhp" required/>
                                   </div>
                                   <div class="col-md-12">
-                                      <label class="control-label">Alamat Rumah</label>
+                                      <label class="control-label">Alamat Toko</label>
                                       <textarea rows="4" class="form-control form-white" name="xalamat"></textarea>
-                                  </div>
-                                  <div class="col-md-12">
-                                      <label class="control-label">Username</label>
-                                      <input class="form-control form-white" placeholder="Masukkan Username" type="text" name="xusername" required/>
-                                  </div>
-                                  <div class="col-md-12">
-                                      <label class="control-label">Password</label>
-                                      <input class="form-control form-white" placeholder="Masukkan Password" type="text" name="xpassword" required/>
-                                  </div>
-                                  <div class="col-md-12">
-                                    <label class="control-label">Photo</label>
-                                    <input style="padding-left: 1px" class="form-control" type="file" name="filefoto" required/>
                                   </div>
                               </div>          
                       </div>
@@ -122,13 +99,10 @@
           $no=0;
           foreach ($data->result_array() as $i) :
             $no++;
-            $id=$i['surveyor_id'];
-            $nama=$i['surveyor_nama'];
-            $alamat=$i['surveyor_alamat'];
-            $hp=$i['surveyor_hp'];
-            $username=$i['surveyor_username'];
-            $password=$i['surveyor_password'];
-            $foto=$i['surveyor_foto'];
+            $id=$i['supplier_id'];
+            $nama=$i['supplier_nama'];
+            $alamat=$i['supplier_alamat'];
+            $hp=$i['supplier_nohp'];
         ?>
          <!-- Modal Edit Data -->
         <div class="modal" tabindex="-1" role="dialog" id="EditData<?php echo $id?>">
@@ -138,13 +112,12 @@
                         <h5 class="modal-title">Edit Data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                        <form action="<?php echo base_url()?>Admin/Data_User/editSurveyor" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo base_url()?>Admin/Data_User/editSupplier" method="post" enctype="multipart/form-data">
                           <div class="modal-body p-20">
                               <div class="row">
                                   <div class="col-md-12">
-                                      <label class="control-label">Nama Lengkap</label>
+                                      <label class="control-label">Nama Toko</label>
                                       <input type="hidden" name="kode" value="<?php echo $id;?>">
-                                      <input type="hidden" name="foto" value="<?php echo $foto;?>">
                                       <input class="form-control form-white" placeholder="Masukkan Nama Lengkap" type="text" name="xnama" value="<?php echo $nama;?>" required/>
                                   </div>
                                   <div class="col-md-12">
@@ -152,20 +125,8 @@
                                       <input class="form-control form-white" placeholder="Masukkan nomor hp" type="number" name="xhp" value="<?php echo $hp;?>" required/>
                                   </div>
                                   <div class="col-md-12">
-                                      <label class="control-label">Alamat Rumah</label>
+                                      <label class="control-label">Alamat Toko</label>
                                       <textarea rows="4" class="form-control form-white" name="xalamat"><?php echo $alamat;?></textarea>
-                                  </div>
-                                  <div class="col-md-12">
-                                      <label class="control-label">Username</label>
-                                      <input class="form-control form-white" placeholder="Masukkan Username" type="text" name="xusername" value="<?php echo $username;?>" required/>
-                                  </div>
-                                  <div class="col-md-12">
-                                      <label class="control-label">Password</label>
-                                      <input class="form-control form-white" placeholder="Masukkan Password" type="text" name="xpassword" value="<?php echo $password;?>" required/>
-                                  </div>
-                                  <div class="col-md-12">
-                                    <label class="control-label">Photo</label>
-                                    <input style="padding-left: 1px" class="form-control" type="file" name="filefoto"/>
                                   </div>
                               </div>          
                           </div>
@@ -183,13 +144,10 @@
           $no=0;
           foreach ($data->result_array() as $i) :
             $no++;
-            $id=$i['surveyor_id'];
-            $nama=$i['surveyor_nama'];
-            $alamat=$i['surveyor_alamat'];
-            $hp=$i['surveyor_hp'];
-            $username=$i['surveyor_username'];
-            $password=$i['surveyor_password'];
-            $foto=$i['surveyor_foto'];
+            $id=$i['supplier_id'];
+            $nama=$i['supplier_nama'];
+            $alamat=$i['supplier_alamat'];
+            $hp=$i['supplier_nohp'];
         ?>
         <!--Modal Delete Data -->
         <div class="modal" tabindex="-1" role="dialog" id="HapusData<?php echo $id?>">
@@ -199,13 +157,12 @@
                         <h5 class="modal-title">Hapus Data</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
-                    <form action="<?php echo base_url()?>Admin/Data_User/hapusSurveyor" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url()?>Admin/Data_User/hapusSupplier" method="post" enctype="multipart/form-data">
                         <div class="modal-body p-20">                     
                             <div class="row">
                                 <div class="col-md-12">
                                     <input type="hidden" name="kode" value="<?php echo $id;?>">
-                                    <input type="hidden" name="gambar" value="<?php echo $foto;?>">
-                                    <p>Apakah kamu yakin ingin menghapus surbeyor <b><i><?php echo $nama?></i></b></p>
+                                    <p>Apakah kamu yakin ingin menghapus supplier : <b><i><?php echo $nama?></i></b></p>
                                 </div>
                             </div>                  
                         </div>

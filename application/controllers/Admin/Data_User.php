@@ -15,6 +15,7 @@
 			$this->load->model('m_surveyor');
 			$this->load->model('m_qc');
 			$this->load->model('m_pengawas');
+			$this->load->model('m_supplier');
 			$this->load->library('upload');
 		}
 
@@ -312,5 +313,47 @@
 			echo $this->session->set_flashdata('msg','success-hapus');
 			redirect('Admin/Data_User/Pengawas');
 		}
+
+		function Supplier(){
+				if($this->session->userdata("akses") == 2){	
+					$y['title'] = "Supplier";
+					$x['data'] = $this->m_supplier->get_all_supplier();
+					$this->load->view('v_header',$y);
+					$this->load->view('admin/v_sidebar');
+					$this->load->view('admin/v_data_supplier',$x);
+				}else{
+					redirect("Login");
+				}
+		}
+		
+		function addSupplier(){
+			$nama=strip_tags($this->input->post('xnama'));
+		    $alamat=$this->input->post('xalamat');
+			$hp=strip_tags($this->input->post('xhp'));
+			$this->m_supplier->simpan_supplier($nama,$alamat,$hp);
+			echo $this->session->set_flashdata('msg','success');
+			redirect('Admin/Data_User/Supplier');
+		}
+
+		function editSupplier(){
+			$id=strip_tags($this->input->post('kode'));
+		    $nama=strip_tags($this->input->post('xnama'));
+		    $alamat=$this->input->post('xalamat');
+			$hp=strip_tags($this->input->post('xhp'));
+			$this->m_supplier->edit_supplier($id,$nama,$alamat,$hp);
+			echo $this->session->set_flashdata('msg','info');
+			redirect('Admin/Data_User/Supplier');
+		}
+
+			function hapusSupplier()
+			{
+				$kode=$this->input->post('kode');
+				$this->m_supplier->hapus_supplier($kode);
+				echo $this->session->set_flashdata('msg','success-hapus');
+				redirect('Admin/Data_User/Supplier');
+			}
 	}
+
+
+
 ?>

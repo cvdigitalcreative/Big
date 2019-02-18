@@ -31,6 +31,7 @@
             <li> <a href="<?php echo base_url()?>Admin/Data_User">Data Surveyor</a> </li>
             <li> <a href="<?php echo base_url()?>Admin/Data_User/QC">Data QC</a> </li>
             <li> <a href="<?php echo base_url()?>Admin/Data_User/Pengawas">Data Pengawas</a> </li>
+            <li> <a href="<?php echo base_url()?>Admin/Data_User/Supplier">Data Supplier</a> </li>
           </ul>
         </li>
         <li>

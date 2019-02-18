@@ -97,6 +97,7 @@ wrapper -->
              <a href="<?php echo base_url()?>Pengawas/Laporan/Harian/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Harian</button></a>
              <a href="<?php echo base_url()?>Pengawas/Keuangan/laporan_koordinator/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Keuangan</button></a>
              <a href="#" data-toggle="modal" data-target="#tambah-data"><button class="btn btn-success mb-10" >Permintaan Barang</button></a>
+             <a href="<?php echo base_url()?>Pengawas/Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Daftar Pekerjaan</button></a>
           </div>
       </div>
 

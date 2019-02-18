@@ -7,7 +7,6 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
-              <li class="breadcrumb-item"><a href="<?php echo $this->agent->referrer();?>" class="default-color">Back</a></li>
               <li class="breadcrumb-item active">Images View</li>
             </ol>
           </div>
