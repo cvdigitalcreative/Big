@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18 Feb 2019 pada 03.37
+-- Generation Time: 22 Feb 2019 pada 07.49
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -71,7 +71,8 @@ CREATE TABLE `data_harian` (
 
 INSERT INTO `data_harian` (`dh_id`, `dh_keahlian`, `dh_jkeahlian`, `dh_material_jenis`, `dh_jumlah_material_terima`, `dh_alat_yg_digunakan`, `dh_jumlah_alat`, `dh_pekerjaan`, `dh_volume`, `dh_keterangan`, `lh_id`) VALUES
 (4, 'Tukang Batu 2', 6, 'Batu Bata1', 10, 'Centong, Semen, Pasir 1', '3, 3 sak, 3 gerobak 1', 'Pasang Dinding  1', '100 m 1', 'Baru selesai 70m1 ', 4),
-(5, 'Tukang Batu 3', 5, 'Batu Bata1', 9, 'Centong, Semen, Pasir 1', '3, 3 sak, 3 gerobak 1', 'Pasang Dinding  1', '100 m 1', 'Baru selesai 70m1 ', 4);
+(5, 'Tukang Batu 3', 5, 'Batu Bata1', 9, 'Centong, Semen, Pasir 1', '3, 3 sak, 3 gerobak 1', 'Pasang Dinding  1', '100 m 1', 'Baru selesai 70m1 ', 4),
+(6, 'Tukang Batu', 9, 'batu bata', 200, 'sekop, centong, ember', 'sekop 5, centong 5,ember 5', 'Buat dinding', '100 m', 'Membuat dinding dibelakang halaman', 5);
 
 -- --------------------------------------------------------
 
@@ -623,7 +624,8 @@ CREATE TABLE `laporan_harian` (
 --
 
 INSERT INTO `laporan_harian` (`lh_id`, `lh_noSPK`, `lh_tglSPK`, `lh_tanggal`, `lh_perpanjangan_waktu`, `lh_minggu`, `lh_hari`, `proyek_id`) VALUES
-(4, '01-A', '2019-01-31 17:00:00', '2019-02-05 01:41:42', '2019-02-07 17:00:00', '1', '2', 4);
+(4, '01-A', '2019-01-31 17:00:00', '2019-02-05 01:41:42', '2019-02-07 17:00:00', '1', '2', 4),
+(5, '04-SA', '1996-03-20 17:00:00', '2019-02-22 03:08:56', '1997-03-20 17:00:00', '4', '1', 9);
 
 -- --------------------------------------------------------
 
@@ -922,7 +924,10 @@ CREATE TABLE `supplier` (
   `supplier_nama` varchar(100) DEFAULT NULL,
   `supplier_tanggal` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `supplier_alamat` text,
-  `supplier_nohp` varchar(50) DEFAULT NULL
+  `supplier_nohp` varchar(50) DEFAULT NULL,
+  `supplier_spesialisasi` varchar(70) DEFAULT NULL,
+  `supplier_provinsi` varchar(70) DEFAULT NULL,
+  `supplier_kota` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1314,7 +1319,7 @@ ALTER TABLE `catatan`
 -- AUTO_INCREMENT for table `data_harian`
 --
 ALTER TABLE `data_harian`
-  MODIFY `dh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `dh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `data_material`
@@ -1464,7 +1469,7 @@ ALTER TABLE `foto_toilet`
 -- AUTO_INCREMENT for table `laporan_harian`
 --
 ALTER TABLE `laporan_harian`
-  MODIFY `lh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `lh_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `laporan_keuangan`
@@ -1542,7 +1547,7 @@ ALTER TABLE `super_admin`
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `surveyor`
