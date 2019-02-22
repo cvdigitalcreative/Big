@@ -29,9 +29,9 @@
         <li>
           <a href="<?php echo base_url()?>TindakanPerbaikan/tindakan_perbaikan_pengawas"><i class="ti-world"></i><span class="right-nav-text">Tindakan Perbaikan</span> </a>
         </li>
-        <li>
+        <!-- <li>
           <a href="<?php echo base_url()?>Pengawas/Pengguna"><i class="ti-user"></i><span class="right-nav-text">Pengaturan Akun</span> </a>
-        </li>
+        </li> -->
          <!-- menu item mailbox-->
        <!--  <li>
           <a href="<?php echo base_url()?>Admin/Inbox"><i class="ti-email"></i><span class="riAkght-nav-text">Mail box</span> </a>

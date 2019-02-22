@@ -39,8 +39,8 @@ wrapper -->
                       </span>
                     </div>
                     <div class="float-left pl-20">
-                      <a href="#" onclick="showMessage()" class="card-text text-dark">Project Message</a>
-                     
+
+                      <a href="<?php echo base_url()?>Admin/ProjectAdmin/foto_pesan/<?php echo $proyek_id?>" class="card-text text-dark">Foto Pesan</a>
                     </div>
                   </div>
                 </div>
@@ -52,7 +52,7 @@ wrapper -->
                       </span>
                     </div>
                     <div class="float-left pl-20">
-                      <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
+                      <a href="#" onclick="showImages()" class="card-text text-dark">Foto Survey</a>
                       
                     </div>
                   </div>

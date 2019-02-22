@@ -40,7 +40,41 @@ class ProjectAdmin extends CI_Controller
 		}
 	}
 
+	public function foto_pesan($proyek_id){
+		$y['title'] = 'Foto Pesan';
+		$x['proyek_id'] = $proyek_id;
+		$x['foto_pesan'] = $this->m_pekerjaan->getdataFotoSS($proyek_id);
+		$this->load->view('v_header',$y);
+		$this->load->view('admin/v_sidebar');
+		$this->load->view('admin/v_foto_pesan',$x);
 
+	}
+
+	function simpan_foto(){
+
+		$config['upload_path'] 	 = './assets/foto_pesan/'; //path folder
+	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+	    $config['max_size'] = 0; //type yang dapat diakses bisa anda sesuaikan
+	            // $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+	    $this->upload->initialize($config);
+
+	    if(!empty($_FILES['foto_file']['name']))
+	    {
+	        if ($this->upload->do_upload('foto_file'))
+	        {
+	            $fl = $this->upload->data();
+	            $foto=$fl['file_name'];
+	            $proyek_id = $this->input->post('proyek_id');
+	            $this->m_pekerjaan->insertFotoss($foto,$proyek_id);
+	            echo $this->session->set_flashdata('msg','success');
+				redirect("Admin/ProjectAdmin/foto_pesan/$proyek_id");				
+			}
+	    }else{
+			redirect();
+		}
+		
+	}
 
 	function detailforAdmin($kode)
 	{
@@ -73,6 +107,7 @@ class ProjectAdmin extends CI_Controller
 			$x['data'] 				= $this->m_proyek->forDetailproyek($kode);
 			$x['pengawas'] 			= $this->m_pengawas->get_all_pengawas();
 			$x['data_laporan'] 		= $this->m_laporan->get_lk_by_id_limit($kode);
+			$x['proyek_id'] 		= $kode;
 			$this->load->view('v_header',$y);
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/v_project_detail_admin',$x);
@@ -225,6 +260,23 @@ class ProjectAdmin extends CI_Controller
 			$this->load->view('v_header',$y);
 			$this->load->view('admin/v_sidebar');
 			$this->load->view('admin/cetak_laporan_upah',$x);
+		}else{
+			redirect("Login");
+		}
+	}
+
+	function cetakLaporanHarian($lh_id){
+		if($this->session->userdata("akses") == 2){
+			$proyek_id = $this->uri->segment(5);
+			$y['title'] = 'Cetak Laporan Harian';
+			$x['laporan_harian'] = $this->m_laporan_harian->getlaporan_byid($proyek_id);
+			$x['data_harian'] = $this->m_laporan_harian->getdata_byid($lh_id);
+			$data	= $this->m_proyek->forDetailproyek($proyek_id);
+			$data_p = $data->row_array();
+			$x['proyek_nama'] = $data_p['proyek_nama'];
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/cetak_laporan_harian',$x);
 		}else{
 			redirect("Login");
 		}

@@ -30,7 +30,7 @@
                 </li>
               </ul>
             <div class="col-xl-4 mb-10">
-                  <a href="<?php echo base_url()?>Admin/ProjectAdmin/cetakLaporanKeuangan/<?php echo $row->proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
+                  <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/cetakLaporanMaterial/<?php echo $row->proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
                       <i class="fa fa-print pr-2"></i> Cetak Laporan Keuangan
                   </a>
             </div>
@@ -47,7 +47,6 @@
                       <th>Uang Keluar</th>
                       <th>Sisa Uang</th>
                       <th>Upload Nota</th>
-                      <th style="width:20px;">Status</th>
                   </tr>
               </thead>
               <tbody>
@@ -75,9 +74,7 @@
                       <?php else:?>
                         <td><button class="btn btn-primary"><?php echo $nota?></button></td>
                       <?php endif;?>
-                      <td>
-                          <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData"><span class="ti-pencil"></span></a>
-                      </td>
+                    
                   </tr>
                   <?php endforeach;?>
                    <?php foreach ($sum->result_array() as $i) :

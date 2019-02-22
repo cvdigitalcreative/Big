@@ -38,10 +38,9 @@ wrapper -->
                         <i class="fa fa-calendar-o highlight-icon" aria-hidden="true"></i>
                       </span>
                     </div>
-                   <!--  <div class="float-left pl-20">
-                      <a href="#" onclick="showMessage()" class="card-text text-dark">Project Message</a>
-                      <h4>100</h4>
-                    </div> -->
+                    <div class="float-left pl-20">
+                      <a href="#" onclick="showMessage()" class="card-text text-dark">Foto Pesan</a>                      
+                    </div>
                   </div>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-30">
@@ -52,7 +51,7 @@ wrapper -->
                       </span>
                     </div>
                     <div class="float-left pl-20">
-                      <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
+                      <a href="#" onclick="showImages()" class="card-text text-dark">Foto Survey</a>
                       
                     </div>
                   </div>
@@ -146,13 +145,19 @@ wrapper -->
 
         <div class="card card-statistics mb-30"> 
           <div class="card-body">
-            <h5 class="card-title">Lihat File</h5>
             <a href="<?php echo base_url()?>Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Daftar Pekerjaan</button></a>
+            <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/Harian/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Harian</button></a>
+          </div>
+        </div>
+
+        <div class="card card-statistics mb-30"> 
+          <div class="card-body">
+            <h5 class="card-title">Lihat File</h5>
              <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/LihatBQ/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat BQ </button></a>
              <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/LihatJadwal/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Jadwal</button></a>
              <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/LihatPermintaanBarang/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Permintaan Barang</button></a>
              <?php foreach ($data_laporan->result() as $i): ?>
-              <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/LihatLaporanKeuangan/<?php echo $row->proyek_id;?>/<?php echo $i->lk_pengirim;?>"><button class="btn btn-success mb-10">Lihat Laporan Keuangan</button></a>
+              <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/LihatLaporanKeuangan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Laporan Keuangan</button></a>
              <?php endforeach;?>
           </div>
         </div>

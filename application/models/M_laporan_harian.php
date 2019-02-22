@@ -10,13 +10,13 @@
 			return $hsl; 
 		}
 
-		function cekDataHarian($lh_id){
-			$hsl =  $this->db->query("SELECT * FROM data_harian WHERE lh_id='$lh_id'");
+		function getlaporan_byid($id){
+			$hsl =  $this->db->query("SELECT laporan_harian.*,DATE_FORMAT(lh_tglSPK,'%d/%m/%Y') AS tglSPK,DATE_FORMAT(lh_tanggal,'%d/%m/%Y') AS tanggal, DATE_FORMAT(lh_perpanjangan_waktu,'%d/%m/%Y') AS perpanjanganwaktu FROM laporan_harian WHERE proyek_id='$id'");
 			return $hsl; 
 		}
 
-		function getlaporan_byid($id){
-			$hsl =  $this->db->query("SELECT laporan_harian.*,DATE_FORMAT(lh_tglSPK,'%d %M %Y') AS tglSPK,DATE_FORMAT(lh_tanggal,'%d %M %Y') AS tanggal, DATE_FORMAT(lh_perpanjangan_waktu,'%d %M %Y') AS perpanjanganwaktu FROM laporan_harian WHERE proyek_id='$id'");
+		function getdata_byid($id){
+			$hsl =  $this->db->query("SELECT * FROM data_harian WHERE lh_id='$id'");
 			return $hsl; 
 		}
 
@@ -35,9 +35,6 @@
 			return $hsl; 
 		}
 
-		function getdata_byid($id){
-			$hsl =  $this->db->query("SELECT * FROM data_harian WHERE lh_id='$id'");
-			return $hsl; 
-		}
+		
 	}
 ?>

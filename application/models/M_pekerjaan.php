@@ -34,5 +34,15 @@
 			$hsl=$this->db->query("INSERT INTO foto_pekerjaan(fpk_foto,dp_id,proyek_id) VALUES ('$foto','$dp_id','$proyek_id')");
 			return $hsl;
 		}
+
+		function getdataFotoSS($proyek_id){
+			$hsl=$this->db->query("SELECT * FROM foto_pesan WHERE proyek_id ='$proyek_id'");
+			return $hsl;
+		}
+
+		function insertFotoss($foto,$proyek_id){
+			$hsl=$this->db->query("INSERT INTO foto_pesan(fpe_foto,proyek_id) VALUES ('$foto','$proyek_id')");
+			return $hsl;
+		}
 	}
 ?>

@@ -7,7 +7,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item"><a href="<?php echo base_url()?>Admin/ProjectAdmin/Harian/<?php echo $proyek_id?>" class="default-color">Laporan harian</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/Harian/<?php echo $proyek_id?>" class="default-color">Laporan harian</a></li>
               <li class="breadcrumb-item active">Data</li>
             </ol>
           </div>
@@ -19,7 +19,7 @@
         <div class="card card-statistics h-100"> 
           <div class="card-body">
             <div class="col-xl-3 mb-10">
-                  <a href="<?php echo base_url()?>Admin/ProjectAdmin/cetakLaporanHarian/<?php echo $lh_id;?>/<?php echo $proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
+                  <a href="<?php echo base_url()?>SUAdmin/ProjectSUAdmin/cetakLaporanHarian/<?php echo $lh_id;?>/<?php echo $proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
                       <i class="fa fa-print pr-2"></i> Cetak Laporan Harian
                   </a>
             </div>

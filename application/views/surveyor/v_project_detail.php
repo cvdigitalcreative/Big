@@ -32,19 +32,7 @@ wrapper -->
                </div>
              </div>    
              <div class="row">
-                <div class="col-sm-6 col-md-4 mb-30">
-                  <div class="clearfix">
-                    <div class="float-left icon-box bg-primary">
-                      <span class="text-white">
-                        <i class="fa fa-calendar-o highlight-icon" aria-hidden="true"></i>
-                      </span>
-                    </div>
-                    <div class="float-left pl-20">
-                     <p class="card-text text-dark">Project Message</p>
-                   
-                    </div>
-                  </div>
-                </div>
+               
                 <div class="col-sm-6 col-md-4 mb-30">
                   <div class="clearfix">
                     <div class="float-left icon-box bg-success">
@@ -53,7 +41,7 @@ wrapper -->
                       </span>
                     </div>
                     <div class="float-left pl-20">
-                      <a href="#" onclick="showImages()" class="card-text text-dark">Project Images</a>
+                      <a href="#" onclick="showImages()" class="card-text text-dark">Foto Survey</a>
                     
                     </div>
                   </div>

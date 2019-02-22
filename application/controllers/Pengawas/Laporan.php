@@ -21,15 +21,15 @@ class Laporan extends CI_Controller
 
 	function Harian($id){
 		if($this->session->userdata("akses") == 3){	
-				$y['title'] = "Laporan Harian";
-				$x['id'] = $id;
-				$x['data_harian'] = $this->m_laporan_harian->getlaporan_byid($id); 
-				$this->load->view('v_header_pengawas',$y);
-				$this->load->view('pengawas/v_sidebar');
-				$this->load->view('pengawas/v_laporan',$x);
-			}else{
-				redirect("LoginPengawas");
-			}
+			$y['title'] = "Laporan Harian";
+			$x['id'] = $id;
+			$x['data_harian'] = $this->m_laporan_harian->getlaporan_byid($id); 
+			$this->load->view('v_header_pengawas',$y);
+			$this->load->view('pengawas/v_sidebar');
+			$this->load->view('pengawas/v_laporan',$x);
+		}else{
+			redirect("LoginPengawas");
+		}
 	}
 
 	function LaporanDetail($id){

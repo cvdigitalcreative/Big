@@ -47,7 +47,7 @@
                       <th>Uang Keluar</th>
                       <th>Sisa Uang</th>
                       <th>Upload Nota</th>
-                      <th style="width:20px;">Status</th>
+                      <!-- <th style="width:20px;">Status</th> -->
                   </tr>
               </thead>
               <tbody>
@@ -75,9 +75,9 @@
                       <?php else:?>
                         <td><button class="btn btn-primary"><?php echo $nota?></button></td>
                       <?php endif;?>
-                      <td>
+                      <!-- <td>
                           <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData"><span class="ti-pencil"></span></a>
-                      </td>
+                      </td> -->
                   </tr>
                   <?php endforeach;?>
                    <?php foreach ($sum->result_array() as $i) :
