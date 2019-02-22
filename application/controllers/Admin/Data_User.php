@@ -330,7 +330,10 @@
 			$nama=strip_tags($this->input->post('xnama'));
 		    $alamat=$this->input->post('xalamat');
 			$hp=strip_tags($this->input->post('xhp'));
-			$this->m_supplier->simpan_supplier($nama,$alamat,$hp);
+			$spesialisasi=strip_tags($this->input->post('xspesialisasi'));
+			$provinsi=strip_tags($this->input->post('xprovinsi'));
+			$kota=strip_tags($this->input->post('xkota'));
+			$this->m_supplier->simpan_supplier($nama,$alamat,$hp,$spesialisasi,$provinsi,$kota);
 			echo $this->session->set_flashdata('msg','success');
 			redirect('Admin/Data_User/Supplier');
 		}
@@ -340,7 +343,10 @@
 		    $nama=strip_tags($this->input->post('xnama'));
 		    $alamat=$this->input->post('xalamat');
 			$hp=strip_tags($this->input->post('xhp'));
-			$this->m_supplier->edit_supplier($id,$nama,$alamat,$hp);
+			$spesialisasi=strip_tags($this->input->post('xspesialisasi'));
+			$provinsi=strip_tags($this->input->post('xprovinsi'));
+			$kota=strip_tags($this->input->post('xkota'));
+			$this->m_supplier->edit_supplier($id,$nama,$alamat,$hp,$spesialisasi,$provinsi,$kota);
 			echo $this->session->set_flashdata('msg','info');
 			redirect('Admin/Data_User/Supplier');
 		}

@@ -34,8 +34,10 @@ class Laporan extends CI_Controller
 
 	function LaporanDetail($id){
 		if($this->session->userdata("akses") == 3){	
+			$proyek_id  = $this->uri->segment(5);
 			$y['title'] = "Laporan Harian";
 			$x['lh_id'] = $id;
+			$x['proyek_id'] = $proyek_id;
 			$x['d_harian'] = $this->m_laporan_harian->getdata_byid($id); 
 			$this->load->view('v_header_pengawas',$y);
 			$this->load->view('pengawas/v_sidebar');

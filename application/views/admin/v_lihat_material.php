@@ -30,7 +30,7 @@
                 </li>
               </ul>
             <div class="col-xl-4 mb-10">
-                  <a href="<?php echo base_url()?>Admin/ProjectAdmin/cetakLaporanKeuangan/<?php echo $row->proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
+                  <a href="<?php echo base_url()?>Admin/ProjectAdmin/cetakLaporanMaterial/<?php echo $row->proyek_id;?>" class="btn btn-primary btn-block ripple m-t-20">
                       <i class="fa fa-print pr-2"></i> Cetak Laporan Keuangan
                   </a>
             </div>

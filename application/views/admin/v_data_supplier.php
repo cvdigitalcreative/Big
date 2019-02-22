@@ -30,6 +30,9 @@
                     <th>Nama Toko</th>
                     <th>Nomor HP</th>
                     <th>Alamat</th>
+                    <th>Spesialisasi</th>
+                    <th>Provinsi</th>
+                    <th>Kota</th>
                     <th>Aksi</th>
                   </tr>
               </thead>
@@ -42,12 +45,18 @@
                        $nama=$i['supplier_nama'];
                        $alamat=$i['supplier_alamat'];
                        $hp=$i['supplier_nohp'];
+                       $spesialisasi=$i['supplier_spesialisasi'];
+                       $provinsi=$i['supplier_provinsi'];
+                       $kota=$i['supplier_kota'];
                   ?>
                   <tr>
                     <td><?php echo $no?></td>
                     <td><?php echo $nama?></td>
                     <td><?php echo $hp?></td>
                     <td><?php echo $alamat?></td>
+                    <td><?php echo $spesialisasi?></td>
+                    <td><?php echo $provinsi?></td>
+                    <td><?php echo $kota?></td>
                     <td>
                       <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#EditData<?php echo $id?>"><span class="ti-pencil"></span></a>
                       <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#HapusData<?php echo $id?>"><span class="ti-trash"></span></a>
@@ -84,6 +93,18 @@
                                       <label class="control-label">Alamat Toko</label>
                                       <textarea rows="4" class="form-control form-white" name="xalamat"></textarea>
                                   </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Spesialisasi</label>
+                                      <input class="form-control form-white" placeholder="Contoh Listrik" type="text" name="xspesialisasi" required/>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Provinsi</label>
+                                      <input class="form-control form-white" placeholder="Contoh : Sumatera Selatan" type="text" name="xprovinsi" required/>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Kota</label>
+                                      <input class="form-control form-white" placeholder="Contoh : Palembang" type="text" name="xkota" required/>
+                                  </div>
                               </div>          
                       </div>
                       <div class="modal-footer">
@@ -103,6 +124,9 @@
             $nama=$i['supplier_nama'];
             $alamat=$i['supplier_alamat'];
             $hp=$i['supplier_nohp'];
+            $spesialisasi=$i['supplier_spesialisasi'];
+            $provinsi=$i['supplier_provinsi'];
+            $kota=$i['supplier_kota'];
         ?>
          <!-- Modal Edit Data -->
         <div class="modal" tabindex="-1" role="dialog" id="EditData<?php echo $id?>">
@@ -128,6 +152,18 @@
                                       <label class="control-label">Alamat Toko</label>
                                       <textarea rows="4" class="form-control form-white" name="xalamat"><?php echo $alamat;?></textarea>
                                   </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Spesialisasi</label>
+                                      <input class="form-control form-white" placeholder="Contoh Listrik" type="text" name="xspesialisasi" value="<?php echo $spesialisasi;?>" required/>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Provinsi</label>
+                                      <input class="form-control form-white" placeholder="Contoh : Sumatera Selatan" type="text" name="xprovinsi" value="<?php echo $provinsi;?>" required/>
+                                  </div>
+                                  <div class="col-md-12">
+                                      <label class="control-label">Kota</label>
+                                      <input class="form-control form-white" placeholder="Contoh : Palembang" type="text" name="xkota" value="<?php echo $kota;?>" required/>
+                                  </div>
                               </div>          
                           </div>
                           <div class="modal-footer">
@@ -148,6 +184,9 @@
             $nama=$i['supplier_nama'];
             $alamat=$i['supplier_alamat'];
             $hp=$i['supplier_nohp'];
+            $spesialisasi=$i['supplier_spesialisasi'];
+            $provinsi=$i['supplier_provinsi'];
+            $kota=$i['supplier_kota'];
         ?>
         <!--Modal Delete Data -->
         <div class="modal" tabindex="-1" role="dialog" id="HapusData<?php echo $id?>">

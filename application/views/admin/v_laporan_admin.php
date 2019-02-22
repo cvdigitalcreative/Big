@@ -17,11 +17,6 @@
       <div class="col-xl-12 mb-30">     
         <div class="card card-statistics h-100"> 
           <div class="card-body">
-            <div class="col-xl-12 mb-10">
-                  <a href="" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
-                      <i class="fa fa-plus pr-2"></i> Tambah Laporan Harian
-                  </a>
-            </div>
             <div class="table-responsive">
             <table id="datatable" class="table table-striped table-bordered p-0">
               <thead>
@@ -59,9 +54,9 @@
                         $c=$q->num_rows();
                         if($c == 0):
                       ?>
-                        <td><a href="<?php echo base_url()?>Pengawas/Laporan/LaporanDetail/<?php echo $id;?>/<?php echo $proyek_id;?>"><button class="btn btn-danger">Belum Input Data</button></a></td>
+                        <td><a href="<?php echo base_url()?>Admin/ProjectAdmin/LaporanDetail/<?php echo $id;?>/<?php echo $proyek_id;?>"><button class="btn btn-danger">Belum Input Data</button></a></td>
                       <?php else :?>
-                        <td><a href="<?php echo base_url()?>Pengawas/Laporan/LaporanDetail/<?php echo $id;?>/<?php echo $proyek_id;?>"><button class="btn btn-primary">Tambah Data Input</button></a></td>
+                        <td><a href="<?php echo base_url()?>Admin/ProjectAdmin/LaporanDetail/<?php echo $id;?>/<?php echo $proyek_id;?>"><button class="btn btn-primary">Tambah Data Input</button></a></td>
                       <?php endif;?>
                   </tr>
                 <?php endforeach;?>
@@ -70,49 +65,7 @@
           </div>
           </div>
         </div>   
-      </div>
-      <!-- Modal Add Data -->
-        <div class="modal" tabindex="-1" role="dialog" id="tambah-data">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Buat Laporan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <form action="<?php echo base_url()?>Pengawas/Laporan/addLaporan" method="post" enctype="multipart/form-data">
-                    <div class="modal-body p-20">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label">No SPK</label>
-                                    <input type="hidden" name="kode" value="<?php echo $id?>">
-                                    <input class="form-control form-white" type="text" name="xnoSPK" />
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label">Tanggal SPK</label>
-                                    <input class="form-control form-white"  type="date" name="xtglSPK" />
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label">Perpanjangan Waktu</label>
-                                    <input class="form-control form-white" type="date" name="xperpanjanganwaktu" />
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label">Minggu ke</label>
-                                    <input class="form-control form-white" type="text" name="xminggu" required/>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="control-label">Hari Ke</label>
-                                    <input class="form-control form-white" type="text" name="xhari" required/>
-                                </div>
-                            </div>          
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger ripple" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success ripple save-category" id="simpan">Save</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>    
+      </div>   
   </div>
 
     

@@ -17,7 +17,7 @@
       </div>
       
      <div id="spk" hidden>
-         <h3><center>LAPORAN KEUANGAN KEUANGAN KOORDINATOR</center></h3>
+         <h3><center>LAPORAN KEUANGAN KEUANGAN MATERIAL</center></h3>
          
          <table border="0" cellpadding="0" style="width:80%" >
             <tr>
@@ -47,10 +47,10 @@
               <tr>
                 <td><center><?php echo $no;?></td>
                 <td><center><?php echo $row->tanggal?></td>
-                <td><center><?php echo $row->lk_keterangan;?></td>
-                <td><center><?php echo $row->lk_uang_masuk;?></td>
-                <td><center><?php echo $row->lk_uang_keluar;?></td>
-                <td><center><?php echo $row->lk_sisa_uang;?></td>
+                <td><center><?php echo $row->lm_keterangan;?></td>
+                <td><center><?php echo $row->lm_uang_masuk;?></td>
+                <td><center><?php echo $row->lm_uang_keluar;?></td>
+                <td><center><?php echo $row->lm_sisa_uang;?></td>
               </tr>
               <?php endforeach;?>
               <?php foreach ($sum->result_array() as $i) :

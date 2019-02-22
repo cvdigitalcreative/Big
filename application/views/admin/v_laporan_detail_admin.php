@@ -7,7 +7,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
               <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item"><a href="<?php echo base_url()?>Pengawas/Laporan/Harian/<?php echo $proyek_id?>" class="default-color">Laporan harian</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url()?>Admin/ProjectAdmin/Harian/<?php echo $proyek_id?>" class="default-color">Laporan harian</a></li>
               <li class="breadcrumb-item active">Data</li>
             </ol>
           </div>
@@ -19,10 +19,15 @@
         <div class="card card-statistics h-100"> 
           <div class="card-body">
             <div class="col-xl-12 mb-10">
+                  <a href="" class="btn btn-primary btn-block ripple m-t-20">
+                      <i class="fa fa-plus pr-2"></i> Cetak Laporan Harian
+                  </a>
+            </div>
+            <!-- <div class="col-xl-12 mb-10">
                   <a href="" data-toggle="modal" data-target="#tambah-data" class="btn btn-primary btn-block ripple m-t-20">
                       <i class="fa fa-plus pr-2"></i> Tambah Data Laporan Harian
                   </a>
-            </div>
+            </div> -->
             <div class="table-responsive">
             <table id="datatable" class="table table-striped table-bordered p-0">
               <thead>
@@ -34,7 +39,7 @@
                       <th rowspan="2">Pekerjaan</th>
                       <th rowspan="2">Volume</th>
                       <th rowspan="2">Keterangan</th>
-                      <th rowspan="2">Aksi</th>
+                      <!-- <th rowspan="2">Aksi</th> -->
                   </tr>
                   <tr class="dark">
                         <th class="text-center">Keahlian</th>
@@ -45,7 +50,7 @@
               </thead>
               <tbody>
                 <?php foreach ($d_harian->result_array() as $i) :
-                       $dh_id                  = $i['dh_id'];
+                       $dh_id               = $i['dh_id'];
                        $keahlian            = $i['dh_keahlian'];
                        $jumlah_keahlian     = $i['dh_jkeahlian'];
                        $material_jenis      = $i['dh_material_jenis'];
@@ -66,10 +71,10 @@
                       <td><?php echo $pekerjaan;?></td>
                       <td><?php echo $volume;?></td>
                       <td><?php echo $keterangan;?></td>
-                      <td>
+                      <!-- <td>
                           <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#editdata<?php echo $dh_id;?>"><span class="ti-pencil"></span></a>
                           <a href="#" style="margin-right: 20px" data-toggle="modal" data-target="#hapusdata<?php echo $dh_id;?>"><span class="ti-trash"></span></a>
-                      </td>
+                      </td> -->
                   </tr>
                   <?php endforeach;?>
               </tbody>
@@ -79,7 +84,7 @@
         </div>   
       </div>
       <!-- Modal Add Data -->
-        <div class="modal" tabindex="-1" role="dialog" id="tambah-data">
+        <!-- <div class="modal" tabindex="-1" role="dialog" id="tambah-data">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -92,39 +97,39 @@
                                 <div class="col-md-12">
                                     <label class="control-label">Keahlian</label>
                                     <input type="hidden" name="kode" value="<?php echo $lh_id?>">
-                                    <input class="form-control form-white" type="text" placeholder="Tukang Batu" name="xkeahlian"  />
+                                    <input class="form-control form-white" type="text" name="xkeahlian"  />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Keahlian</label>
-                                    <input class="form-control form-white" type="number" name="xjkeahlian" placeholder="9"  />
+                                    <input class="form-control form-white" type="number" name="xjkeahlian" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jenis Bahan Material</label>
-                                    <input class="form-control form-white"  type="text" name="xjenismaterial" placeholder="Batu Bata"  />
+                                    <input class="form-control form-white"  type="text" name="xjenismaterial" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Material Yang Diterima</label>
-                                    <input class="form-control form-white"  type="number" name="xjumlahmaterial" placeholder="200" />
+                                    <input class="form-control form-white"  type="number" name="xjumlahmaterial" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Alat-Alat Yang Digunakan</label>
-                                    <input class="form-control form-white" type="text" name="xalat" placeholder="sekop, centong, ember" />
+                                    <input class="form-control form-white" type="text" name="xalat" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Alat</label>
-                                    <input class="form-control form-white" type="text" name="xjumlahalat" placeholder="sekop 5, centong 5,ember 5"/>
+                                    <input class="form-control form-white" type="text" name="xjumlahalat" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Pekerjaan</label>
-                                    <input class="form-control form-white" type="text" name="xpekerjaan" placeholder="Buat dinding" />
+                                    <input class="form-control form-white" type="text" name="xpekerjaan" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Volume</label>
-                                    <input class="form-control form-white" type="text" name="xvolume" placeholder="100 m" />
+                                    <input class="form-control form-white" type="text" name="xvolume" />
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Keterangan</label>
-                                    <input class="form-control form-white" type="text" name="xketerangan" placeholder="Membuat dinding dibelakang halaman" />
+                                    <input class="form-control form-white" type="text" name="xketerangan" />
                                 </div>
                             </div>          
                     </div>
@@ -135,9 +140,9 @@
                     </form>
                 </div>
             </div>
-        </div> 
+        </div>  -->
 
-        <?php foreach ($d_harian->result_array() as $i) :
+        <!-- <?php foreach ($d_harian->result_array() as $i) :
           $dh_id               = $i['dh_id'];
           $keahlian            = $i['dh_keahlian'];
           $jumlah_keahlian     = $i['dh_jkeahlian'];
@@ -148,9 +153,9 @@
           $pekerjaan           = $i['dh_pekerjaan'];
           $volume              = $i['dh_volume'];
           $keterangan          = $i['dh_keterangan'];
-        ?>
+        ?> -->
         <!-- Modal edit Data -->
-        <div class="modal" tabindex="-1" role="dialog" id="editdata<?php echo $dh_id?>">
+        <!-- <div class="modal" tabindex="-1" role="dialog" id="editdata<?php echo $dh_id?>">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -164,39 +169,39 @@
                                     <label class="control-label">Keahlian</label>
                                     <input type="hidden" name="kode" value="<?php echo $lh_id?>">
                                     <input type="hidden" name="kode1" value="<?php echo $dh_id?>">
-                                    <input class="form-control form-white" type="text" name="xkeahlian" value="<?php echo $keahlian;?>" placeholder="Tukang Batu"/>
+                                    <input class="form-control form-white" type="text" name="xkeahlian" value="<?php echo $keahlian;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Keahlian</label>
-                                    <input class="form-control form-white" type="number" name="xjkeahlian" value="<?php echo $jumlah_keahlian;?>" placeholder="9"/>
+                                    <input class="form-control form-white" type="number" name="xjkeahlian" value="<?php echo $jumlah_keahlian;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jenis Bahan Material</label>
-                                    <input class="form-control form-white"  type="text" name="xjenismaterial" value="<?php echo $material_jenis;?>" placeholder="Batu Bata"/>
+                                    <input class="form-control form-white"  type="text" name="xjenismaterial" value="<?php echo $material_jenis;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Material Yang Diterima</label>
-                                    <input class="form-control form-white"  type="number" name="xjumlahmaterial" value="<?php echo $jumlah_material;?>" placeholder="200"/>
+                                    <input class="form-control form-white"  type="number" name="xjumlahmaterial" value="<?php echo $jumlah_material;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Alat-Alat Yang Digunakan</label>
-                                    <input class="form-control form-white" type="text" name="xalat" value="<?php echo $alat_yg_digunakan;?>" placeholder="sekop, centong, ember"/>
+                                    <input class="form-control form-white" type="text" name="xalat" value="<?php echo $alat_yg_digunakan;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Jumlah Alat</label>
-                                    <input class="form-control form-white" type="text" name="xjumlahalat" value="<?php echo $jumlah_alat;?>" placeholder="sekop 5, centong 5,ember 5"/>
+                                    <input class="form-control form-white" type="text" name="xjumlahalat" value="<?php echo $jumlah_alat;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Pekerjaan</label>
-                                    <input class="form-control form-white" type="text" name="xpekerjaan" value="<?php echo $pekerjaan;?>" placeholder="Buat dinding"/>
+                                    <input class="form-control form-white" type="text" name="xpekerjaan" value="<?php echo $pekerjaan;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Volume</label>
-                                    <input class="form-control form-white" type="text" name="xvolume" value="<?php echo $volume;?>" placeholder="100 m"/>
+                                    <input class="form-control form-white" type="text" name="xvolume" value="<?php echo $volume;?>"/>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="control-label">Keterangan</label>
-                                    <input class="form-control form-white" type="text" name="xketerangan" value="<?php echo $keterangan;?>" placeholder="Membuat dinding dibelakang halaman"/>
+                                    <input class="form-control form-white" type="text" name="xketerangan" value="<?php echo $keterangan;?>"/>
                                 </div>
                             </div>          
                     </div>
@@ -208,9 +213,9 @@
                 </div>
             </div>
         </div>
-        <?php endforeach;?> 
+        <?php endforeach;?>  -->
 
-         <?php foreach ($d_harian->result_array() as $i) :
+         <!-- <?php foreach ($d_harian->result_array() as $i) :
           $dh_id               = $i['dh_id'];
           $keahlian            = $i['dh_keahlian'];
           $jumlah_keahlian     = $i['dh_jkeahlian'];
@@ -248,7 +253,7 @@
                 </div>
             </div>
         </div>
-        <?php endforeach;?>     
+        <?php endforeach;?>     --> 
   </div>
 
     

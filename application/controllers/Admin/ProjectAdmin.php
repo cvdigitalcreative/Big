@@ -18,6 +18,7 @@ class ProjectAdmin extends CI_Controller
 		$this->load->model('m_qc');
 		$this->load->model('m_foto');
 		$this->load->model('m_pengawas');
+		$this->load->model('m_laporan_harian');
 		$this->load->library('upload');
 		$this->load->model('m_pekerjaan');
 		$this->load->model('m_permintaan_barang');
@@ -195,6 +196,40 @@ class ProjectAdmin extends CI_Controller
 		}
 	}
 
+	function cetakLaporanMaterial($kode){
+		if($this->session->userdata("akses") == 2){
+			$id = $this->uri->segment(5);
+			$x['data_pengirim'] = $this->m_laporan->get_pengirim_by_id($id);
+			$y['title']="Cetak Laporan Keuangan";
+			$x['data'] = $this->m_proyek->forDetailproyek($kode);
+			$x['dataPB'] = $this->m_permintaan_barang->getPBbyProyekId($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lm_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM_lm($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/cetak_laporan_material',$x);
+		}else{
+			redirect("Login");
+		}
+	}
+
+	function cetakLaporanUpah($kode){
+		if($this->session->userdata("akses") == 2){
+			$id = $this->uri->segment(5);
+			$x['data_pengirim'] = $this->m_laporan->get_pengirim_by_id($id);
+			$y['title']="Cetak Laporan Keuangan";
+			$x['data'] = $this->m_proyek->forDetailproyek($kode);
+			$x['dataPB'] = $this->m_permintaan_barang->getPBbyProyekId($kode);
+			$x['data_laporan'] = $this->m_laporan->get_lu_by_id($kode);
+			$x['sum'] = $this->m_laporan->SUM_lu($kode);
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/cetak_laporan_upah',$x);
+		}else{
+			redirect("Login");
+		}
+	}
+
 	function download_bq(){
 		$id=$this->uri->segment(4);
 		$get_db=$this->m_files->get_file_bq_byid($id);
@@ -257,6 +292,34 @@ class ProjectAdmin extends CI_Controller
 
 		echo $this->session->set_flashdata('msg','success-tglspk');
 		redirect("Admin/ProjectAdmin/detailforAdmin/$kode");
+	}
+
+	function Harian($id){
+		if($this->session->userdata("akses") == 2){	
+				$y['title'] = "Laporan Harian";
+				$x['id'] = $id;
+				$x['data_harian'] = $this->m_laporan_harian->getlaporan_byid($id); 
+				$this->load->view('v_header',$y);
+				$this->load->view('admin/v_sidebar');
+				$this->load->view('admin/v_laporan_admin',$x);
+			}else{
+				redirect("Login");
+			}
+	}
+
+	function LaporanDetail($id){
+		if($this->session->userdata("akses") == 2){
+			$proyek_id  = $this->uri->segment(5);	
+			$y['title'] = "Laporan Harian";
+			$x['lh_id'] = $id;
+			$x['proyek_id'] = $proyek_id;
+			$x['d_harian'] = $this->m_laporan_harian->getdata_byid($id); 
+			$this->load->view('v_header',$y);
+			$this->load->view('admin/v_sidebar');
+			$this->load->view('admin/v_laporan_detail_admin',$x);
+		}else{
+			redirect("Login");
+		}
 	}
 	//Admin End Function Project
 }

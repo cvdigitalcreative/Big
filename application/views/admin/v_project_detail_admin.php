@@ -147,12 +147,14 @@ wrapper -->
         <div class="card card-statistics mb-30"> 
           <div class="card-body">
             <a href="<?php echo base_url()?>Pekerjaan/lihat_perkerjaan/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Daftar Pekerjaan</button></a>
+            <a href="<?php echo base_url()?>Admin/ProjectAdmin/Harian/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Laporan Harian</button></a>
           </div>
         </div>
 
         <div class="card card-statistics mb-30"> 
           <div class="card-body">
             <h5 class="card-title">Lihat File</h5>
+
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatBQ/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat BQ </button></a>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatJadwal/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Jadwal</button></a>
              <a href="<?php echo base_url()?>Admin/ProjectAdmin/LihatPermintaanBarang/<?php echo $row->proyek_id;?>"><button class="btn btn-success mb-10">Lihat Permintaan Barang</button></a>
