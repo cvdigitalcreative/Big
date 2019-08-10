@@ -46,6 +46,7 @@
           <a href="<?php echo base_url()?>LoginQC"><button class="btn btn-warning mb-10" style="margin-left: 10px">Quality Control</button></a>
           <a href="<?php echo base_url()?>LoginPengawas"><button class="btn btn-success mb-10" style="margin-left: 10px">Pengawas</button></a>
           <a href="<?php echo base_url()?>Login"><button class="btn btn-primary mb-10" style="margin-left: 10px">Admin</button></a>
+          <a href="<?php echo base_url()?>Login_Aset"><button class="btn btn-primary mb-10" style="margin-left: 10px">Aset</button></a>
         </div> 
       </div>
 

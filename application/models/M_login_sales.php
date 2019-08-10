@@ -25,9 +25,5 @@ class M_login extends CI_Model
         $hasil=$this->db->query("SELECT * FROM super_admin WHERE suadmin_username='$username' AND suadmin_password='$password' ");
         return $hasil;
     }
-
-    function cekAdminSales($username,$password){
-        $hasil=$this->db->query("SELECT * FROM tbl_sales WHERE pengguna_username='$username' AND pengguna_password='$password' ");
-        return $hasil;    }
   
 }?>
